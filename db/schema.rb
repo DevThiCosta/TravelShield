@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_234708) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_21_235644) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "district"
+    t.string "country"
+    t.string "state"
+    t.string "safety_tip"
+  end
 
   create_table "danger_areas", force: :cascade do |t|
     t.integer "risk"
@@ -30,6 +38,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_234708) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "address"
+    t.string "reviews"
+    t.string "phone_number"
+    t.date "birthday"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
