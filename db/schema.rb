@@ -20,6 +20,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_235644) do
     t.string "country"
     t.string "state"
     t.string "safety_tip"
+  end
+
+  create_table "danger_areas", force: :cascade do |t|
+    t.integer "risk"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
