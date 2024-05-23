@@ -53,6 +53,10 @@ gem "devise"
 gem 'devise-bootstrap-views', '~> 1.1'
 gem "faker"
 gem "pg_search"
+gem 'conecta_address_br'
+gem 'jsbundling-rails'
+
+
 
 
 
