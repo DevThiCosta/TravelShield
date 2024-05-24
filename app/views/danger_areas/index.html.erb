@@ -1,2 +1,8 @@
 <h1>Danger Areas</h1>
-<p>Find me in app/views/dange_areas/index.html.erb</p>
+
+<ul class="list-group">
+  <% @danger_areas.each do |danger_area| %>
+    <li class="list-group-item"><%= danger_area.name %></li>
+  <% end %>
+</ul>
+
