@@ -2,7 +2,13 @@
 
 <ul class="list-group">
   <% @danger_areas.each do |danger_area| %>
-    <li class="list-group-item"><%= danger_area.name %></li>
+    <li class="list-group-item">
+      <%= link_to danger_area.name, danger_area_path(danger_area.id) %>
+    </li>
   <% end %>
 </ul>
 
+<div>
+  <%= link_to "New Area", new_danger_area_path, class: "btn btn-primary" %>
+  <%# Assuming you have a specific danger_area.id for editing %>
+  </div>
