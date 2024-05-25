@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'cities/index'
+  get 'cities/show'
+  get 'index/show'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -7,7 +10,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
   resources :danger_areas
-
+  resources :cities
   # Defines the root path route ("/")
   # root "posts#index"
 end
