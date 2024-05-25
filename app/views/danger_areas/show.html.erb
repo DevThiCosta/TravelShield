@@ -15,6 +15,10 @@
 
   <dt>Risk</dt>
   <dd><%= @danger_area.risk %></dd>
+
+  <dt>Description</dt>
+  <dd><%= @danger_area.description %></dd> <!-- Add this line -->
+
 </dl>
 
 <%= link_to "Delete", danger_area_path(@danger_area), method: :delete, data: { confirm: "Are you sure you want to delete this area?" }, class: "btn btn-danger" %>
