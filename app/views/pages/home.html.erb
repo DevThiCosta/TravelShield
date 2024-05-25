@@ -1,7 +1,23 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
-    <h1>TravelShield brings <strong>safety information</strong> for <strong>travellers</strong>!</h1>
-    <p>Make your trip safe getting information about your destination.</p>
-    <a class="btn btn-flat" href="#">Sign up</a>
+    <h1>TravelShield fornece <strong>informação de segurança</strong> para <strong>quem quer viajar</strong>!</h1>
+    <p>Deixe a sua viagem mais segura com informações sobre qualquer destino.</p>
+    <a class="btn btn-flat" href="#">Cadastre-se</a>
+  </div>
+</div>
+
+<ul class="list-areas">
+  <% @danger_areas.each do |danger_area| %>
+    <li class="list-areas-item">
+      <%= link_to danger_area.name, danger_area_path(danger_area.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="card-danger-area">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-danger-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
   </div>
 </div>
