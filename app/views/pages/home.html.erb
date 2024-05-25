@@ -1,23 +1,33 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
-    <h1>TravelShield fornece <strong>informação de segurança</strong> para <strong>quem quer viajar</strong>!</h1>
+    <h1>TravelShield <strong>informa sobre a segurança do destino</strong> para <strong>quem quer viajar</strong>!</h1>
     <p>Deixe a sua viagem mais segura com informações sobre qualquer destino.</p>
-    <a class="btn btn-flat" href="#">Cadastre-se</a>
+    <a class="btn btn-flat" href="#">Busca</a>
   </div>
 </div>
 
-<ul class="list-areas">
-  <% @danger_areas.each do |danger_area| %>
-    <li class="list-areas-item">
-      <%= link_to danger_area.name, danger_area_path(danger_area.id) %>
-    </li>
-  <% end %>
-</ul>
-
-<div class="card-danger-area">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-danger-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <% @danger_areas.each do |danger_area| %>
+    <div class="carousel-item active">
+      <div class="d-block w-100">
+        <%= link_to danger_area.name, danger_area_path(danger_area.id) %>
+      </div>
+    </div>
+    <% end %>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
