@@ -1,0 +1,23 @@
+<div class="container" style="text-align: center;">
+  <div class="avatar">
+    <%= image_tag @profile_user.avatar, class: "rounded-circle", style: "width: 300%;" %>
+  </div>
+  <div class="social-info">
+    <p> X viagens Y Seguidores Z Seguindo</p>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Bio</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ac libero ultricies aliquam. Nullam nec purus ac libero ultricies aliquam.</p>
+    </div>
+  </div>
+  <div class="links">
+    <ul class="list-group no">
+      <li><a href="#" style="text-decoration: none;">Minhas informações</a></li>
+      <li><a href="#" style="text-decoration: none;">Lugares salvos</a></li>
+      <li><a href="#" style="text-decoration: none;">Avaliações</a></li>
+      <li><%= link_to "Sair", destroy_user_session_path, method: :delete, style: "text-decoration: none;" %></li>
+    </ul>
+  </div>
+  </div>
+</div>

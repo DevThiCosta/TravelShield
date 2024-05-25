@@ -1,0 +1,19 @@
+<div class="profile">
+  <div class="avatar">
+    <%= image_tag @profile_user.avatar, class: "rounded-circle", style: "width: 300%;" %>
+  </div>
+  <div class="username">
+          <%= @profile_user.name %>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="dropdown-menu">
+  <ul>
+    <li><a href="#">Informações pessoais</a></li>
+    <li><a href="#">Privacidade e segurança</a></li>
+    <li><a href="#">Configurações</a></li>
+    <li><a href="#">Preferências</a></li>
+  </ul>
+</div>

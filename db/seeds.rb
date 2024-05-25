@@ -11,9 +11,10 @@ DangerArea.destroy_all
     address: Faker::Address.full_address,
     birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
     reviews: Faker::Lorem.paragraph,
-    password: "123456"
-  )
-end
+    password: "123456",
+    avatar: "https://kitt.lewagon.com/placeholder/users/ssaunier"
+      )
+    end
 
 # Seed Cities
 cities = ConectaAddressBr::Cities.by_state_single("RJ")
