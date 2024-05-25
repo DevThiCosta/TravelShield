@@ -21,7 +21,9 @@
 
 </dl>
 
-<%= link_to "Delete", danger_area_path(@danger_area), method: :delete, data: { confirm: "Are you sure you want to delete this area?" }, class: "btn btn-danger" %>
-<%= link_to "Edit", edit_danger_area_path(@danger_area.id), class: "btn btn-secondary" %>
-<%= link_to "Go Back", danger_areas_path, class: "btn btn-primary" %>
-<%= link_to "Home", root_path, class: "btn btn-primary" %>
+<div class="button-group">
+  <%= button_to "Delete", danger_area_path(@danger_area), method: :delete, data: { turbo_method: :delete, confirm: "Are you sure you want to delete this area?" }, class: "btn btn-danger" %>
+  <%= link_to "Edit", edit_danger_area_path(@danger_area.id), class: "btn btn-secondary" %>
+  <%= link_to "Go Back", danger_areas_path, class: "btn btn-primary" %>
+  <%= link_to "Home", root_path, class: "btn btn-primary" %>
+</div>
