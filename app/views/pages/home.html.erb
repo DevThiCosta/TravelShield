@@ -9,11 +9,15 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <% @cities.each_with_index do |city, index| %>
-    <div class="carousel-item <%= index == 0 ? "active" : "" %>">
-      <div class="d-block w-100">
-        <%= link_to city.name, city_path(city.id) %>
+      <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2><%= link_to city.name, city_path(city.id) %></h2>
+            <p>Product description with <strong>relevant info</strong> only.</p>
+          </div>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

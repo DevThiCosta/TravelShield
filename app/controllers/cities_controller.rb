@@ -11,5 +11,5 @@ end
 private
 
 def city_params
-  params.require(:city).permit(:name)
+  params.require(:city).permit(:name, :district, :state, :country, :safety_tip)
 end

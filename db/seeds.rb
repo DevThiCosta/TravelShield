@@ -27,7 +27,7 @@ cities.each do |city|
     country: "Brasil",
     state: "RJ",
     safety_tip: Faker::Lorem.paragraph,
-    photo: cities_photos.sample
+    photo: cities_photos
   )
 end
 
