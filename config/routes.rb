@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'pages/about' => 'pages#about'
   get 'pages/contact' => 'pages#contact'
   get 'pages/terms' => 'pages#terms'
+  resources :reviews
   resources :danger_areas
   resources :profile_user
   get '/profile_user/:id/info', to: 'profile_user#info', as: 'profile_user_info'

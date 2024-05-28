@@ -109,6 +109,8 @@ end
 User.all.each do |user|
   50.times do
     Review.create!(
+      title: Faker::Lorem.sentence,
+      rate: rand(1..5),
       comment: Faker::Lorem.paragraph,
       user: user
     )
