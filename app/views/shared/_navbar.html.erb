@@ -10,13 +10,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <%= link_to "Home", root_path, class: "nav-link" %>
+          </li>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Messages</a>
           </li>
           <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <%= link_to profile_user_path(current_user), class: "nav-link" do %>
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>
