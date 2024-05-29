@@ -17,8 +17,8 @@
   </div>
   <div class="links" style="text-align: center;">
     <ul class="list-group list-unstyled">
-      <li><%= link_to "Minhas informações", profile_user_info_path(@profile_user), style: "text-decoration: none;" %></li>
-      <li><a href="#" style="text-decoration: none;">Lugares salvos</a></li>
+      <li><a href="#" style="text-decoration: none;">Lugares Salvos</a></li>
+      <li><%= link_to "Informações", profile_user_info_path(@profile_user), style: "text-decoration: none;" %></li>
       <li><%= link_to "Avaliações", review_path(@profile_user), style: "text-decoration: none;" %></li>
       <li><%= link_to "Sair", destroy_user_session_path, method: :delete, style: "text-decoration: none;" %></li>
     </ul>
