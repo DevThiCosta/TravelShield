@@ -1,0 +1,13 @@
+<div class="row">
+  <% @reviews.shuffle.each do |review| %>
+    <div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title"><%= review.user.name %></h3>
+          <p class="card-text"><%= review.title %></p>
+          <p class="card-text">Rating: <%= review.rate %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

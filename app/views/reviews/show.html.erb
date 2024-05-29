@@ -1,0 +1,19 @@
+<h1><%= current_user.name %>!</h1>
+
+<h2>Suas Avaliações:</h2>
+<div class="row">
+  <% current_user.reviews.each_slice(3) do |reviews| %>
+    <div class="card-group">
+      <% reviews.each do |review| %>
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"><%= review.title %></h3>
+            <p class="card-text"><%= review.comment %></p>
+            <p class="card-text">Rating: <%= review.rate %></p>
+            <%= link_to 'Editar', edit_review_path(review) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

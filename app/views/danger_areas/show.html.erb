@@ -1,0 +1,27 @@
+<h1>Area Details</h1>
+
+<%# Fetch the danger area using its ID %>
+<% @danger_area = DangerArea.find(params[:id]) %>
+
+<dl class="dl-horizontal">
+  <dt>Name</dt>
+  <dd><%= @danger_area.name %></dd>
+
+  <dt>Latitude</dt>
+  <dd><%= @danger_area.latitude %></dd>
+
+  <dt>Longitude</dt>
+  <dd><%= @danger_area.longitude %></dd>
+
+  <dt>Risk</dt>
+  <dd><%= @danger_area.risk %></dd>
+
+  <dt>Description</dt>
+  <dd><%= @danger_area.description %></dd> <!-- Add this line -->
+
+</dl>
+<div class="btn-group" role="group">
+  <%= link_to "Edit", edit_danger_area_path(@danger_area.id), class: "btn btn-secondary mr-2" %>
+  <%= link_to "Go Back", danger_areas_path, class: "btn btn-primary mr-2" %>
+  <%= button_to "Delete", danger_area_path(@danger_area), method: :delete, data: { turbo_method: :delete, confirm: "Tem certeza de que deseja excluir esta área?" }, class: "btn btn-danger" %>
+</div>

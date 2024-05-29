@@ -1,0 +1,56 @@
+<div class="profile">
+    <div class="avatar" style="display: inline-block;">
+    <%= image_tag @profile_user.avatar, class: "rounded-circle", style: "width: 300%;" %>
+  </div>
+  <div class="username">
+    <%= @profile_user.name %>
+  </div>
+</div>
+
+  <div class="dropdown">
+    <ul class="list-unstyled">
+      <li>
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Privacidade e segurança
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Configurações de privacidade</a></li>
+        <li><a class="dropdown-item" href="#">Configurações de segurança</a></li>
+      </ul>
+      </li>
+
+      <li>
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Informações pessoais
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Detalhes pessoais</a></li>
+        <li><a class="dropdown-item" href="#">Histórico de atividades</a></li>
+        <li><a class="dropdown-item" href="#">Preferências de comunicação</a></li>
+      </ul>
+      </li>
+
+      <li>
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Configurações
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Opção 1</a></li>
+        <li><a class="dropdown-item" href="#">Opção 2</a></li>
+        <li><a class="dropdown-item" href="#">Opção 3</a></li>
+      </ul>
+      </li>
+
+      <li>
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Preferências
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Preferência 1</a></li>
+        <li><a class="dropdown-item" href="#">Preferência 2</a></li>
+        <li><a class="dropdown-item" href="#">Preferência 3</a></li>
+      </ul>
+      </li>
+    </ul>
+    </ul>
+  </div>
