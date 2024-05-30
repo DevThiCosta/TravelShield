@@ -1,6 +1,13 @@
 <h1><%= current_user.name %>!</h1>
 
-<h2>Suas Avaliações:</h2>
+<div>
+  <h2 style="display: inline-block;">Suas Avaliações:</h2>
+  <div style="float: right;">
+    <%= link_to 'Nova Avaliação', new_review_path, class: 'btn btn-info' %>
+    <%= link_to 'Todas as Avaliações', reviews_path, class: 'btn btn-info' %>
+  </div>
+  </div>
+</div>
 <div class="row">
   <% current_user.reviews.each_slice(3) do |reviews| %>
     <div class="card-group">
@@ -9,8 +16,8 @@
           <div class="card-body">
             <h3 class="card-title"><%= review.title %></h3>
             <p class="card-text"><%= review.comment %></p>
-            <p class="card-text">Rating: <%= review.rate %></p>
-            <%= link_to 'Editar', edit_review_path(review) %>
+            <p class="card-text">Nota: <%= review.rate %></p>
+            3
           </div>
         </div>
       <% end %>
