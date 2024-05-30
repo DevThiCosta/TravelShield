@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :danger_areas
   resources :profile_user
+  resources :cities
   get '/profile_user/:id/info', to: 'profile_user#info', as: 'profile_user_info'
   # Defines the root path route ("/")
   # root "posts#index"
