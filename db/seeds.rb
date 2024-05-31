@@ -27,6 +27,7 @@ cities.each do |city|
     state: "RJ",
     safety_tip: Faker::Lorem.paragraph
   )
+  city.geocode
 end
 
 # Seed Danger Areas
