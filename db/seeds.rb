@@ -25,7 +25,7 @@ cities.each do |city|
     district: districts.sample,
     country: "Brasil",
     state: "RJ",
-    safety_tip: Faker::Lorem.paragraph
+    safety_tip: "Dica de segurança relevante para #{city}, #{Faker::Lorem.paragraph}"
   )
   city.geocode
 end
