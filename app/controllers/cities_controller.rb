@@ -3,6 +3,16 @@ class CitiesController < ApplicationController
 
   def index
     @cities = City.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        cities.name @@ :query
+        OR cities.district @@ :query
+        OR cities.state @@ :query
+        OR cities.country @@ :query
+      SQL
+      @cities = @cities.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+
     @makers = @cities.geocoded.map do |city|
       {
         lat: city.latitude,
