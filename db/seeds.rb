@@ -3,6 +3,8 @@ City.destroy_all
 DangerArea.destroy_all
 Review.destroy_all
 
+cities_photos = "https://res.cloudinary.com/dkcetjel5/image/upload/v1716668402/fotoRioDeJaneiro_shnysb.jpg"
+
 # Seed Users
 10.times do |i|
   User.create!(
@@ -25,12 +27,16 @@ cities.each do |city|
     district: districts.sample,
     country: "Brasil",
     state: "RJ",
-    safety_tip: "Dica de segurança relevante para #{city}, #{Faker::Lorem.paragraph}"
+    safety_tip: "Dica de segurança relevante para #{city}, #{Faker::Lorem.paragraph}",
+    safety_tip: Faker::Lorem.paragraph,
+    photo: cities_photos
+
   )
   city.geocode
 end
 
 # Seed Danger Areas
+city_id = City.where(name: "Rio de Janeiro").first.id
 [
   {
     name: "Complexo do Alemão",

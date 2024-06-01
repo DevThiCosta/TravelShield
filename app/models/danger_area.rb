@@ -6,4 +6,5 @@ class DangerArea < ApplicationRecord
   validates :risk, presence: true, inclusion: { in: 1..5 }
   validates :latitude, presence: true
   validates :longitude, presence: true
+
 end
