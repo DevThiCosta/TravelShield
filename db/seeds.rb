@@ -30,6 +30,7 @@ cities.each do |city|
     safety_tip: Faker::Lorem.paragraph,
     photo: cities_photos
   )
+  city.geocode
 end
 
 # Seed Danger Areas
