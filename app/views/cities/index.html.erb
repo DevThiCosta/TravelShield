@@ -1,4 +1,4 @@
-<div id="map" style="width: 100%; height: 600px;"
+<div id="map" style="width: 100%; height: 300px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -7,11 +7,10 @@
 <div class="row">
   <% @cities.each do |city| %>
     <div class="col-md-3">
-      <div class="card mb-4 rounded">
-        <%= link_to city_path(city) do %>
-          <div class="card-body">
-            IMAGEM NO BACKGROUND
-            <h5 class="card-title"><%= city.name %></h5>
+      <div class="card mb-4 rounded" style="background: none; border: none;">
+        <%= link_to city_path(city), style: "text-decoration: none;" do %>
+        <div class="card-body" style="background-image: url('https://res.cloudinary.com/dkcetjel5/image/upload/v1716668402/fotoRioDeJaneiro_shnysb.jpg'); background-color: white; ">
+          <h5 class="card-title" style="color: white;"><%= city.name %></h5>
           </div>
         <% end %>
       </div>
