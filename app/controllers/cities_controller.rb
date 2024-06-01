@@ -2,7 +2,12 @@ class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cities = City.all
+    if params[:query].present?
+      @cities = City.search_any_location(params[:query])
+    else
+      @cities = City.all
+    end
+
     @makers = @cities.geocoded.map do |city|
       {
         lat: city.latitude,
