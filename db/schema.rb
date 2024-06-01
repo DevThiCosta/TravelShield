@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_234936) do
     t.string "photo"
     t.float "latitude"
     t.float "longitude"
+    t.string "photo"
   end
 
   create_table "danger_areas", force: :cascade do |t|

@@ -4,7 +4,9 @@ class DangerArea < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   validates :risk, presence: true, inclusion: { in: 1..5 }
-  validates :latitude, presence: true
-  validates :longitude, presence: true
+  #validates :latitude, presence: true
+  #validates :longitude, presence: true
 
+  geocoded_by :name
+  after_validation :geocode
 end
