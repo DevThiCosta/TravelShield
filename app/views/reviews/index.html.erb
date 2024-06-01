@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+    <form action="<%= reviews_path %>" method="get">
+      <label for="rating">Filtros:</label>
+      <select name="rating" id="rating">
+        <option value="" selected>Todos</option>
+        <option value="1">1 Estela</option>
+        <option value="2">2 Estrelas</option>
+        <option value="3">3 Estrelas</option>
+        <option value="4">4 Estrelas</option>
+        <option value="5">5 Estrelas</option>
+      </select>
+      <button type="submit">Aplicar Filtro</button>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <% @reviews.select { |review| review.rate == params[:rating].to_i }.shuffle.each do |review| %>
+    <div class="col-md-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title"><%= review.user.name %></h3>
+          <p class="card-text"><%= review.title %></p>
+          <p class="card-text"> Nota: <%= review.rate %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
