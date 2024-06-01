@@ -17,9 +17,9 @@
           </li>
           <li class="nav-item dropdown">
             <% if current_user %>
-              <%= link_to profile_user_path(current_user), class: "nav-link" do %>
-                <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-              <% end %>
+                <%= link_to profile_user_path(current_user), class: "nav-link" do %>
+                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" %>
+                <% end %>
             <% else %>
               <%= link_to  new_user_session_path, class: "nav-link" do %>
                 Log in
