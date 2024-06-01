@@ -1,14 +1,21 @@
 <% @city = City.find(params[:id]) %>
 
-<h1><%= @city.name %> - <%= @city.state %></h1>
-<div class="description">
-  <h3>Descricao:</h3>
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas laudantium saepe repellendus doloremque ducimus quo, impedit ullam beatae, tenetur sapiente id deserunt fugit harum tempore esse a? Inventore, aut modi!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1><%= @city.name %> - <%= @city.state %></h1>
+      <div class="description">
+        <h3>Descrição:</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas laudantium saepe repellendus doloremque ducimus quo, impedit ullam beatae, tenetur sapiente id deserunt fugit harum tempore esse a? Inventore, aut modi!</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <p><%= @city.district %> *Talvez um mapa aqui também?*</p>
+      <div>
+        <h3>Fique de Olho:</h3>
+        <p><%= @city.safety_tip %> inhabitants</p>
+      </div>
+      <%= link_to "Voltar para Cidades", cities_path, class: "btn btn-info" %>
+    </div>
+  </div>
 </div>
-
-<p><%= @city.district %> *Talvez um mapa aqui tambem?*</p>
-<div>
-  <h3>Fique de Olho:</h3>
-  <p><%= @city.safety_tip %> inhabitants</p>
-</div>
-<%= link_to "Voltar para Cidades", cities_path, class: "btn btn-info" %>
