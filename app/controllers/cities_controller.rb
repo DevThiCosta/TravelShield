@@ -3,6 +3,12 @@ class CitiesController < ApplicationController
 
   def index
     @cities = City.all
+    @makers = @cities.geocoded.map do |city|
+      {
+        lat: city.latitude,
+        lng: city.longitude
+      }
+    end
   end
 
   def show
