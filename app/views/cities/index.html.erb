@@ -1,24 +1,36 @@
-<div style="align-center">
+<div>
+  <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Digite uma cidade"
+      %>
+    <%= submit_tag "Buscar", name: "", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<div>
   <% if @cities.count.zero? %>
     <h1>Nenhum resultado encontrado</h1>
   <% end %>
 </div>
-<div id="map" style="width: 100%; height: 600px;"
+
+<div id="map" style="width: 100%; height: 300px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-<div class="row">
+
+<div class="home-card mt-5">
   <% @cities.each do |city| %>
-    <div class="col-md-3">
-      <div class="card mb-4 rounded">
-        <%= link_to city_path(city) do %>
-          <div class="card-body">
-            IMAGEM NO BACKGROUND
-            <h5 class="card-title"><%= city.name %></h5>
-          </div>
-        <% end %>
-      </div>
+    <div class="card mb-4 rounded">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="home-card-body">
+          <%= link_to city_path(city) do %>
+            <h5 class="home-card-title"><%= city.name %></h5>
+          <% end %>
+          <p>Short description here!</p>
+        </div>
     </div>
   <% end %>
 </div>

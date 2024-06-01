@@ -2,15 +2,10 @@ class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cities = City.all
     if params[:query].present?
-      sql_subquery = <<~SQL
-        cities.name @@ :query
-        OR cities.district @@ :query
-        OR cities.state @@ :query
-        OR cities.country @@ :query
-      SQL
-      @cities = @cities.where(sql_subquery, query: "%#{params[:query]}%")
+      @cities = City.search_any_location(params[:query])
+    else
+      @cities = City.all
     end
 
     @makers = @cities.geocoded.map do |city|
