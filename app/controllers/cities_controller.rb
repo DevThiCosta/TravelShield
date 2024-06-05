@@ -7,17 +7,15 @@ class CitiesController < ApplicationController
     else
       @cities = City.all
     end
-
-    @makers = @cities.geocoded.map do |city|
-      {
-        lat: city.latitude,
-        lng: city.longitude
-      }
-    end
   end
 
   def show
     @city_reviews = Review.where(city_id: params[:id])
+    @city = City.find(params[:id])
+    @markers = [{
+        lat: @city.latitude,
+        lng: @city.longitude
+      }]
   end
 
   def new

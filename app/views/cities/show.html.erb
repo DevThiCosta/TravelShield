@@ -1,21 +1,25 @@
 <% @city = City.find(params[:id]) %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <h1><%= @city.name %> - <%= @city.state %></h1>
-      <div class="description">
-        <h3>Descrição:</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas laudantium saepe repellendus doloremque ducimus quo, impedit ullam beatae, tenetur sapiente id deserunt fugit harum tempore esse a? Inventore, aut modi!</p>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <p><%= @city.district %> *Talvez um mapa aqui também?*</p>
-      <div>
-        <h3>Fique de Olho:</h3>
-        <p><%= @city.safety_tip %> inhabitants</p>
-      </div>
+<div class="row">
+  <div class="col-md-8">
+    <h1 class="text-center"><%= @city.name %> - <%= @city.state %></h1>
+    <div class="description m-5">
+      <h3 class="mb-4 ">Descrição:</h3>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas laudantium saepe repellendus doloremque ducimus quo, impedit ullam beatae, tenetur sapiente id deserunt fugit harum tempore esse a? Inventore, aut modi!</p>
+      <h3>Fique de Olho:</h3>
+      <p><%= @city.safety_tip %> inhabitants</p>
       <%= link_to "Voltar para Cidades", cities_path, class: "btn btn-info" %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-12" style="height: 100vh;">
+        <div id="map" style="width: 100%; height: 100%; margin-left: 10px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
     </div>
   </div>
 </div>
