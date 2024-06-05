@@ -9,11 +9,7 @@
   <% end %>
 </div>
 
-<div>
-  <% if @cities.count.zero? %>
-    <h1>Nenhum resultado encontrado</h1>
-  <% end %>
-</div>
+<div style="margin-top: 20px;"></div> <!-- Add this line to create space -->
 
 <div id="map" style="width: 100%; height: 300px;"
   data-controller="map"
