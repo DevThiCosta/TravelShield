@@ -19,30 +19,31 @@
           <li class="nav-item active">
             <%= link_to "Áreas perigosas", danger_areas_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
-            <%= link_to "Dicas", root_path, class: "nav-link" %>
+            <li class="nav-item active">
+            <%= link_to "Dicas", pages_tips_path, class: "nav-link" %>
+            </li>
           </li>
         </div>
           <%# <li class="nav-item">
             <a class="nav-link" href="#">Messages</a>
           </li> %>
           <li class="nav-item dropdown">
-            <% if current_user %>
-                <%= link_to profile_user_path(current_user), class: "nav-link" do %>
-                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" %>
+              <li class="nav-item dropdown">
+              <% if current_user %>
+                <%= link_to profile_user_path(current_user), class: "nav-link dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" do %>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
                 <% end %>
-            <% else %>
-              <%= link_to  new_user_session_path, class: "nav-link" do %>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="<%= profile_user_path(current_user) %>">Perfil</a>
+                <!-- <a class="dropdown-item" href="#">Another action</a> ADD ANOTHER ACTION -->
+                <a class="dropdown-item" data-turbo-method="delete" href="<%= destroy_user_session_path %>">Log out</a>
+                </div>
+              <% else %>
+                <%= link_to new_user_session_path, class: "nav-link" do %>
                 Log in
+                <% end %>
               <% end %>
-            <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
-            </div>
-          </li>
-          <!--li class="nav-item"-->
+              </li>
           <!--/li-->
       </ul>
     </div>

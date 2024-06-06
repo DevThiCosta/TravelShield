@@ -10,6 +10,7 @@ root to: "pages#home"
   get 'pages/about' => 'pages#about'
   get 'pages/contact' => 'pages#contact'
   get 'pages/terms' => 'pages#terms'
+  get 'pages/tips' => 'pages#tips'
   resources :reviews
   resources :danger_areas
   resources :profile_user
