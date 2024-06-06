@@ -1,9 +1,8 @@
+<% @danger_area = DangerArea.find(params[:id]) %>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h1>Area Details</h1>
-
-      <% @danger_area = DangerArea.find(params[:id]) %>
+      <h1>Detalhes da Área</h1>
 
       <dl class="dl-horizontal">
         <dt>Nome</dt>
@@ -26,7 +25,7 @@
       </dl>
       <div class="row mt-4">
         <div class="col-md-6">
-          <div class="btn-group" >
+          <div class="btn-group" role="group">
             <%= link_to "Editar", edit_danger_area_path(@danger_area.id), class: "btn btn-secondary m-2" %>
             <%= link_to "Voltar", :back, class: "btn btn-primary m-2" %>
             <%= button_to "Excluir", danger_area_path(@danger_area), method: :delete, data: { turbo_method: :delete, confirm: "Tem certeza de que deseja excluir esta área?" }, class: "btn btn-danger m-2" %>
