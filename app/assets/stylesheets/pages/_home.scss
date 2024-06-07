@@ -9,13 +9,14 @@
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 36px;
   font-weight: bold;
   text-align: center;
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: bold;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -34,9 +35,15 @@
 
 .home-card {
   display: grid;
+  font-size: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 24px;
   padding: 16px;
+}
+
+.home-card-title {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 // Smallest device
@@ -72,4 +79,18 @@
   .home-card {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+}
+
+.home-section-three {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 240px 0;
+}
+
+.home-section-four {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 240px 0;
 }
