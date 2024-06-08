@@ -3,7 +3,7 @@
     <h1>TravelShield <strong>informa sobre a segurança do destino</strong> para <strong>quem quer viajar</strong>!</h1>
     <p>Deixe a sua viagem mais segura com informações sobre qualquer destino.</p>
       <div class="row justify-content-center">
-        <div class="col-sm-8 my-4">
+        <div class="col-sm-8 my-4" style="width: 50%">
           <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,
                   params[:query],
@@ -20,29 +20,35 @@
 <div class="home-card mt-5">
   <div class="card mb-4 rounded">
     <div class="card">
-      <img src="https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg" />
+      <%= link_to image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg"), cities_path, class: "card" %>
     </div>
     <div class="home-card-body mx-3 my-3">
-        <h5 class="home-card-title"><%= link_to "Rio de Janeiro", cities_path %></h5>
+        <h5 class="home-card-title">Rio de Janeiro</h5>
       <p>Short description here!</p>
     </div>
   </div>
   <div class="card mb-4 rounded">
-    <img src="https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoSaoPaulo_rvpz2l.jpg" />
+    <div class="card">
+      <%= link_to image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoSaoPaulo_rvpz2l.jpg"), cities_path, class: "card" %>
+    </div>
     <div class="home-card-body mx-3 my-3">
       <h5 class="home-card-title">São Paulo</h5>
       <p>Short description here!</p>
     </div>
   </div>
   <div class="card mb-4 rounded">
-    <img src="https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoFlorianopolis_kxmapz.jpg" />
+    <div class="card">
+      <%= link_to image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoFlorianopolis_kxmapz.jpg"), cities_path, class: "card" %>
+    </div>
     <div class="home-card-body mx-3 my-3">
       <h5 class="home-card-title">Santa Catarina</h5>
       <p>Short description here!</p>
     </div>
   </div>
   <div class="card mb-4 rounded">
-    <img src="https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoJericuaquara_eefgmu.jpg" />
+    <div class="card">
+      <%= link_to image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoJericuaquara_eefgmu.jpg"), cities_path, class: "card" %>
+    </div>
     <div class="home-card-body mx-3 my-3">
       <h5 class="home-card-title">Ceará</h5>
       <p>Short description here!</p>

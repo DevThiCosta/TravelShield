@@ -1,12 +1,14 @@
-<div>
-  <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Digite uma cidade"
-      %>
-    <%= submit_tag "Buscar", name: "", class: "btn btn-primary" %>
-  <% end %>
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-5" style="width: 35%">
+    <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Digite um destino"
+        %>
+      <%= submit_tag "Buscar", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
 <div style="margin-top: 20px;"></div> <!-- Add this line to create space -->
@@ -20,7 +22,7 @@
 <div class="home-card mt-5">
   <% @cities.each do |city| %>
     <div class="card mb-4 rounded">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoJericuaquara_eefgmu.jpg") %>
         <div class="home-card-body">
           <%= link_to city_path(city) do %>
             <h5 class="home-card-title"><%= city.name %></h5>
