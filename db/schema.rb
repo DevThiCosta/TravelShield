@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_30_234936) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_08_195930) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,7 +22,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_234936) do
     t.string "safety_tip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
     t.float "latitude"
     t.float "longitude"
     t.string "photo"
@@ -49,6 +48,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_234936) do
     t.bigint "user_id"
     t.string "title"
     t.integer "rate"
+    t.bigint "city_id", null: false
+    t.index ["city_id"], name: "index_reviews_on_city_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -71,5 +72,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_234936) do
 
   add_foreign_key "danger_areas", "cities"
   add_foreign_key "danger_areas", "users"
+  add_foreign_key "reviews", "cities"
   add_foreign_key "reviews", "users"
 end

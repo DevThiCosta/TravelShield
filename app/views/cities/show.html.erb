@@ -9,13 +9,33 @@
         <ul>
           <% @city.danger_areas.each do |danger_area| %>
             <% if danger_area.present? %>
-              <li><%= link_to danger_area.name, danger_area_path(danger_area.id), style: "text-decoration: none; color: black;" %></li>
+              <li><%= link_to danger_area.name, danger_area_path(danger_area.id) %></li>
             <% end %>
           <% end %>
         </ul>
       <% else %>
         <p>Fique tranquilo, nenhuma área perigosa encontrada😊</p>
       <% end %>
+      <div class="reviews">
+  <h3 class="mb-4">Avaliações:</h3>
+  <% if @reviews.present? %>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <% @reviews.each_with_index do |review, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <h5><%= review.title %></h5>
+            <p><%= review.comment %></p>
+            <p><strong>Classificação:</strong> <%= review.rate %></p>
+          </div>
+        <% end %>
+      </div>
+      <!-- Adicione os controles do carrossel aqui -->
+    </div>
+  <% else %>
+    <p>Nenhuma avaliação disponível.</p>
+  <% end %>
+</div>
+
       <%= link_to "Voltar para Cidades", cities_path, class: "btn btn-info" %>
     </div>
   </div>
