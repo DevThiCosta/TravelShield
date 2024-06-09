@@ -1,10 +1,15 @@
 class DangerAreasController < ApplicationController
+
   def index
     @danger_areas = DangerArea.all
   end
 
   def show
     @danger_area = DangerArea.find(params[:id])
+    @markers_area = [{
+        lat: @danger_area.latitude,
+        lng: @danger_area.longitude
+      }]
   end
 
   def new
@@ -42,6 +47,6 @@ class DangerAreasController < ApplicationController
   private
 
   def danger_area_params
-    params.require(:danger_area).permit(:name, :description, :latitude, :longitude, :risk)
+    params.require(:danger_area).permit(:name, :description, :city, :latitude, :longitude, :risk)
   end
 end

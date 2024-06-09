@@ -11,6 +11,7 @@ class CitiesController < ApplicationController
 
   def show
     @city_reviews = Review.where(city_id: params[:id])
+    
     @city = City.find(params[:id])
     @markers = [{
         lat: @city.latitude,
