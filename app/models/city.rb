@@ -1,5 +1,6 @@
 class City < ApplicationRecord
   has_many :danger_areas
+  has_many :reviews
 
   validates :name, presence: true
   validates :district, presence: true

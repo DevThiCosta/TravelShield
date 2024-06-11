@@ -1,3 +1,4 @@
+# db/seeds.rb
 User.destroy_all
 City.destroy_all
 DangerArea.destroy_all
@@ -18,22 +19,10 @@ cities_photos = "https://res.cloudinary.com/dkcetjel5/image/upload/v1716668402/f
   )
 end
 
-# Seed Reviews
-User.all.each do |user|
-  50.times do
-    Review.create!(
-      title: Faker::Lorem.sentence,
-      rate: rand(1..5),
-      comment: Faker::Lorem.paragraph,
-      user: user
-    )
-  end
-end
-
 # Seed Cities
 cities = ConectaAddressBr::Cities.by_state_single("RJ")
 districts = ["Centro", "Zona Sul", "Zona Norte", "Zona Oeste"]
-cities.each do |city|
+created_cities = cities.map do |city|
   City.create!(
     name: city,
     district: districts.sample,
@@ -48,8 +37,7 @@ end
 rio_de_janeiro = City.find_by(name: "Rio de Janeiro")
 mage = City.find_by(name: "Magé")
 
-
-[
+danger_areas = [
   {
     name: "Complexo do Alemão",
     description: "Complexo de favelas localizado na Zona Norte do Rio de Janeiro",
@@ -110,8 +98,25 @@ mage = City.find_by(name: "Magé")
     risk: rand(1..5),
     city: rio_de_janeiro
   }
-].each do |danger_area|
-  DangerArea.create!(danger_area)
+]
+
+danger_areas.each do |danger_area|
+  da = DangerArea.new(danger_area)
+  da.save!
+  puts "Geocoded: #{da.name} - Lat: #{da.latitude}, Lng: #{da.longitude}"
+end
+
+# Seed Reviews
+User.all.each do |user|
+  50.times do
+    Review.create!(
+      title: Faker::Lorem.sentence,
+      rate: rand(1..5),
+      comment: Faker::Lorem.paragraph,
+      user: user,
+      city: created_cities.sample  # Use city: rather than city_id: Rails understands the association
+    )
+  end
 end
 
 puts "Seed completed!"

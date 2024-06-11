@@ -56,6 +56,7 @@ gem "pg_search"
 gem 'conecta_address_br'
 gem "cloudinary"
 gem "geocoder"
+gem 'kaminari'
 
 group :development, :test do
   gem "dotenv-rails"

@@ -1,34 +1,56 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6" style="text-align: center">
-      <h1>Detalhes da Área</h1>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-header bg-danger text-white">
+          <h2 class="mb-0">Detalhes da Área</h2>
+        </div>
+        <div class="card-body">
+          <dl class="row">
+            <dt class="col-sm-4">Nome</dt>
+            <dd class="col-sm-8"><%= @danger_area.name %></dd>
 
-      <dl class="dl-horizontal">
-        <dt>Nome</dt>
-        <dd><%= @danger_area.name %></dd>
+            <dt class="col-sm-4">Cidade</dt>
+            <dd class="col-sm-8"><%= @danger_area.city.name %></dd>
 
-        <dt>Cidade</dt>
-        <dd><%= @danger_area.city.name %></dd>
+            <dt class="col-sm-4">Latitude</dt>
+            <dd class="col-sm-8"><%= @danger_area.latitude %></dd>
 
-        <dt>Latitude</dt>
-        <dd><%= @danger_area.latitude %></dd>
+            <dt class="col-sm-4">Longitude</dt>
+            <dd class="col-sm-8"><%= @danger_area.longitude %></dd>
 
-        <dt>Longitude</dt>
-        <dd><%= @danger_area.longitude %></dd>
+            <dt class="col-sm-4">Risco</dt>
+            <dd class="col-sm-8"><%= @danger_area.risk %></dd>
 
-        <dt>Risco</dt>
-        <dd><%= @danger_area.risk %></dd>
-
-        <dt>Descrição</dt>
-        <dd><%= @danger_area.description %></dd>
-      </dl>
-      <div class="row mt-4">
-        <div class="col-md-6">
-          <div class="btn-group" role="group">
-            <%= link_to "Editar", edit_danger_area_path(@danger_area.id), class: "btn btn-secondary m-2" %>
-            <%= link_to "Voltar", :back, class: "btn btn-primary m-2" %>
-            <%= button_to "Excluir", danger_area_path(@danger_area), method: :delete, data: { turbo_method: :delete, confirm: "Tem certeza de que deseja excluir esta área?" }, class: "btn btn-danger m-2" %>
-          </div>
+            <dt class="col-sm-4">Descrição</dt>
+            <dd class="col-sm-8"><%= @danger_area.description %></dd>
+          </dl>
+        </div>
+        <div class="card-footer text-center">
+          <%= link_to "Editar", edit_danger_area_path(@danger_area.id), class: "btn btn-secondary m-2" %>
+          <%= link_to "Voltar", danger_areas_path, class: "btn btn-primary m-2" %>
+          <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Excluir</button>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Exclusão</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Tem certeza de que deseja excluir esta área?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <%= button_to "Excluir", danger_area_path(@danger_area), method: :delete, class: "btn btn-danger", form: { data: { "turbo-method": :delete } } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

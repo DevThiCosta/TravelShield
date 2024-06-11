@@ -1,13 +1,27 @@
-<footer>
+<footer class="footer py-4 bg-light text-dark">
   <div class="container">
-    <div class="row text-center">
-      <div class="col d-flex justify-content-center" style="font-size:15px;">
-        <p class="me-3 my-3">TravelShield - Protegendo suas viagens ©</p>
-        <ul class="list-unstyled d-flex justify-content-between">
-          <li class="px-2"><%= link_to "Sobre nós", pages_about_path, style: "text-decoration: none;" %></li>
-          <li class="px-2"><%= link_to "Contato", pages_contact_path, style: "text-decoration: none;" %></li>
-          <li class="px-2"><%= link_to "Termos de serviço", pages_terms_path, style: "text-decoration: none;" %></li>
+    <div class="row justify-content-center align-items-center">
+      <!-- Left Column: Company Info and Links -->
+      <div class="col-lg-7 d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start mb-3 mb-lg-0">
+        <p class="mb-2 mb-lg-0 me-lg-3">TravelShield - Protegendo suas viagens ©</p>
+        <ul class="list-unstyled d-flex mb-0 ">
+          <li class="me-3"><%= link_to "Sobre nós", pages_about_path, class: "text-dark" %></li>
+          <li class="me-3"><%= link_to "Contato", pages_contact_path, class: "text-dark" %></li>
+          <li><%= link_to "Termos de serviço", pages_terms_path, class: "text-dark" %></li>
         </ul>
+      </div>
+      <!-- Right Column: Social Media Icons -->
+      <div class="col-lg-5 d-flex justify-content-center justify-content-lg-end">
+        <ul class="list-unstyled d-flex mb-0">
+          <li class="nav-item mx-2">
+            <a href="#" class="text-dark"><i class="fa-brands fa-instagram fa-2x"></i></a>
+          </li>
+          <li class="nav-item mx-2">
+            <a href="#" class="text-dark"><i class="fa-brands fa-twitter fa-2x"></i></a>
+          </li>
+          <li class="nav-item mx-2">
+            <a href="#" class="text-dark"><i class="fa-brands fa-facebook-f fa-2x"></i></a>
+          </li>
         </ul>
       </div>
     </div>
