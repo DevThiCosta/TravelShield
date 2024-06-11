@@ -1,26 +1,31 @@
-<h1 class="display-4 text-center my-4">Áreas Perigosas</h1>
+<div style="text-align: center;">
+  <h1>Áreas Perigosas</h1>
+</div>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card shadow-sm">
-        <div class="card-header bg-danger text-white">
-          <h5 class="mb-0">Lista de Áreas Perigosas</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-          <% @danger_areas.each do |danger_area| %>
-            <li class="list-group-item">
-              <%= link_to danger_area.name, danger_area_path(danger_area.id), class: "text-decoration-none text-dark" %>
-            </li>
-          <% end %>
-        </ul>
+<div class="danger-areas-cards-grid"></div>
+  <% @danger_areas.each do |danger_area| %>
+  <div class="danger-areas-cards">
+        <%= link_to danger_area_path(danger_area.id) do %>
+          <%= image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg") %>
+        <% end %>
+      <div class="danger-areas-cards-infos">
+        <h2><%= danger_area.name %></h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
       </div>
     </div>
+    <% end %>
   </div>
+</div>
 
+<div class="danger-areas-cards">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="danger-areas-cards-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+  
   <div class="row mt-4">
     <div class="col text-center">
       <%= link_to "Nova Área", new_danger_area_path, class: "btn btn-primary" %>
-    </div>
   </div>
 </div>

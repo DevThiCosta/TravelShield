@@ -10,66 +10,59 @@
                   class: "form-control",
                   placeholder: "Digite um destino"
               %>
-            <%= submit_tag "Buscar", name: "", class: "btn btn-primary" %>
+            <%= submit_tag "Buscar", name: "", class: "btn btn-primary fw-semibold" %>
           <% end %>
         </div>
       </div>
   </div>
 </div>
 
-<div class="home-card mt-5">
-  <div class="card mb-4 rounded">
-    <div class="card">
-      <%= link_to image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg"), cities_path, class: "card" %>
-    </div>
-    <div class="home-card-body mx-3 my-3">
-        <h5 class="home-card-title">Rio de Janeiro</h5>
-      <p>Short description here!</p>
-    </div>
-  </div>
-  <div class="card mb-4 rounded">
-    <div class="card">
-      <%= link_to image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoSaoPaulo_rvpz2l.jpg"), cities_path, class: "card" %>
-    </div>
-    <div class="home-card-body mx-3 my-3">
-      <h5 class="home-card-title">São Paulo</h5>
-      <p>Short description here!</p>
+<div class="cards mt-4 mb-4 me-4 ms-4">
+  <div class="card-trip">
+    <%= link_to cities_path do %>
+      <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg") %>
+    <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h5 class="card-section-title">Rio de Janeiro</h5>
+        <p>Short description here!</p>
+      </div>
     </div>
   </div>
-  <div class="card mb-4 rounded">
-    <div class="card">
-      <%= link_to image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoFlorianopolis_kxmapz.jpg"), cities_path, class: "card" %>
-    </div>
-    <div class="home-card-body mx-3 my-3">
-      <h5 class="home-card-title">Santa Catarina</h5>
-      <p>Short description here!</p>
+  <div class="card-trip">
+    <%= link_to cities_path do %>
+      <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoSaoPaulo_rvpz2l.jpg") %>
+    <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h5 class="card-section-title">São Paulo</h5>
+        <p>Short description here!</p>
+      </div>
     </div>
   </div>
-  <div class="card mb-4 rounded">
-    <div class="card">
-      <%= link_to image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoJericuaquara_eefgmu.jpg"), cities_path, class: "card" %>
+  <div class="card-trip">
+    <%= link_to cities_path do %>
+      <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoFlorianopolis_kxmapz.jpg") %>
+    <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h5 class="card-section-title">Santa Catarina</h5>
+        <p>Short description here!</p>
+      </div>
     </div>
-    <div class="home-card-body mx-3 my-3">
-      <h5 class="home-card-title">Ceará</h5>
-      <p>Short description here!</p>
+  </div>
+  <div class="card-trip">
+    <%= link_to cities_path do %>
+      <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoJericuaquara_eefgmu.jpg") %>
+    <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h5 class="card-section-title">Ceará</h5>
+        <p>Short description here!</p>
+      </div>
     </div>
   </div>
 </div>
-
-<%#
-<div class="home-card mt-5">
-  <% @cities.each do |city| %>
-    <%# <div class="card mb-4 rounded">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <div class="home-card-body">
-          <%= link_to city_path(city) do %>
-            <%# <h5 class="home-card-title"><%= city.name %></h5>
-          <%# <% end %>
-          <%# <p>Short description here!</p>
-        </div>
-    </div>
-  <% end %>
-<%# </div> %>
 
 <div class="home-section-three d-flex align-items-center">
   <div class="col-4">
