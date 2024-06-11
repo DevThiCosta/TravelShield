@@ -1,34 +1,43 @@
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-5" style="width: 35%">
-    <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Digite um destino"
-        %>
-      <%= submit_tag "Buscar", name: "", class: "btn btn-primary" %>
+<div class="container my-5">
+  <!-- Search Bar -->
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <%= form_with url: cities_path, method: :get, class: "d-flex input-group" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Digite um destino" %>
+        <button class="btn btn-primary" type="submit">Buscar</button>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div class="row mt-5">
+    <div class="col">
+      <div id="map" class="w-100" style="height: 300px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
+
+  <!-- Cities List -->
+  <div class="row mt-5 g-3">
+    <% @cities.each do |city| %>
+      <div class="col-md-3 d-flex align-items-stretch">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="overflow-hidden rounded-top">
+            <%= link_to city_path(city), class: "card-link" do %>
+              <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoJericuaquara_eefgmu.jpg", class: "card-img-top") %>
+            <% end %>
+          </div>
+          <div class="card-body p-3">
+            <%= link_to city_path(city), class: "card-link text-dark" do %>
+              <h5 class="card-title mb-1"><%= city.name %></h5>
+            <% end %>
+            <p class="card-text text-muted">Short description here!</p>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
-</div>
-
-<div style="margin-top: 20px;"></div> <!-- Add this line to create space -->
-
-<div id="map" style="width: 100%; height: 300px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
-<div class="home-card mt-5">
-  <% @cities.each do |city| %>
-    <div class="card mb-4 rounded">
-      <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoJericuaquara_eefgmu.jpg") %>
-        <div class="home-card-body">
-          <%= link_to city_path(city) do %>
-            <h5 class="home-card-title"><%= city.name %></h5>
-          <% end %>
-          <p>Short description here!</p>
-        </div>
-    </div>
-  <% end %>
 </div>

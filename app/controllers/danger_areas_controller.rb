@@ -47,6 +47,6 @@ class DangerAreasController < ApplicationController
   private
 
   def danger_area_params
-    params.require(:danger_area).permit(:name, :description, :city, :latitude, :longitude, :risk)
+    params.require(:danger_area).permit(:name, :description, :city_id, :latitude, :longitude, :risk)
   end
 end
