@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" style="background-color: rgb(235, 233, 230)">
   <div class="col-sm-8 my-5" style="width: 35%">
     <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
@@ -6,12 +6,10 @@
             class: "form-control",
             placeholder: "Digite um destino"
         %>
-      <%= submit_tag "Buscar", name: "", class: "btn btn-primary" %>
+      <%= submit_tag "Buscar", name: "", class: "btn btn-primary fw-semibold" %>
     <% end %>
   </div>
 </div>
-
-<div style="margin-top: 20px;"></div> <!-- Add this line to create space -->
 
 <div id="map" style="width: 100%; height: 300px;"
   data-controller="map"
@@ -19,16 +17,18 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div class="home-card mt-5">
+<div class="cards mt-3">
   <% @cities.each do |city| %>
-    <div class="card mb-4 rounded">
-      <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoJericuaquara_eefgmu.jpg") %>
-        <div class="home-card-body">
-          <%= link_to city_path(city) do %>
-            <h5 class="home-card-title"><%= city.name %></h5>
-          <% end %>
+    <div class="card-trip">
+      <%= link_to city_path(city) do %>
+        <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg") %>
+      <% end %>
+      <div class="card-trip-infos">
+        <div>
+          <h5 class="card-section-title"><%= city.name %></h5>
           <p>Short description here!</p>
         </div>
+      </div>
     </div>
   <% end %>
 </div>
