@@ -1,56 +1,61 @@
-<div class="profile">
-    <div class="avatar" style="display: inline-block;">
-    <%= image_tag @profile_user.avatar, class: "rounded-circle", style: "width: 300%;" %>
-  </div>
-  <div class="username">
-    <%= @profile_user.name %>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <div class="profile mb-4" >
+        <!-- Avatar -->
+        <div class="avatar mb-3" style="margin: 0 auto;">
+          <%= image_tag @profile_user.avatar, class: "rounded-circle", style: "width: 300%;" %>
+        </div>
+        <!-- Username -->
+        <h2 class="username"><%= @profile_user.name %></h2>
+      </div>
+
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <div class="dropdown mb-3">
+            <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Privacidade e segurança
+            </button>
+            <ul class="dropdown-menu w-100">
+              <li><a class="dropdown-item" href="#">Configurações de privacidade</a></li>
+              <li><a class="dropdown-item" href="#">Configurações de segurança</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown mb-3">
+            <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Informações pessoais
+            </button>
+            <ul class="dropdown-menu w-100">
+              <li><a class="dropdown-item" href="#">Detalhes pessoais</a></li>
+              <li><a class="dropdown-item" href="#">Histórico de atividades</a></li>
+              <li><a class="dropdown-item" href="#">Preferências de comunicação</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown mb-3">
+            <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Configurações
+            </button>
+            <ul class="dropdown-menu w-100">
+              <li><a class="dropdown-item" href="#">Opção 1</a></li>
+              <li><a class="dropdown-item" href="#">Opção 2</a></li>
+              <li><a class="dropdown-item" href="#">Opção 3</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown mb-3">
+            <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Preferências
+            </button>
+            <ul class="dropdown-menu w-100">
+              <li><a class="dropdown-item" href="#">Preferência 1</a></li>
+              <li><a class="dropdown-item" href="#">Preferência 2</a></li>
+              <li><a class="dropdown-item" href="#">Preferência 3</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-  <div class="dropdown">
-    <ul class="list-unstyled">
-      <li>
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Privacidade e segurança
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Configurações de privacidade</a></li>
-        <li><a class="dropdown-item" href="#">Configurações de segurança</a></li>
-      </ul>
-      </li>
-
-      <li>
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Informações pessoais
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Detalhes pessoais</a></li>
-        <li><a class="dropdown-item" href="#">Histórico de atividades</a></li>
-        <li><a class="dropdown-item" href="#">Preferências de comunicação</a></li>
-      </ul>
-      </li>
-
-      <li>
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Configurações
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Opção 1</a></li>
-        <li><a class="dropdown-item" href="#">Opção 2</a></li>
-        <li><a class="dropdown-item" href="#">Opção 3</a></li>
-      </ul>
-      </li>
-
-      <li>
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Preferências
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Preferência 1</a></li>
-        <li><a class="dropdown-item" href="#">Preferência 2</a></li>
-        <li><a class="dropdown-item" href="#">Preferência 3</a></li>
-      </ul>
-      </li>
-    </ul>
-    </ul>
-  </div>

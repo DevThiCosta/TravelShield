@@ -1,26 +1,39 @@
-<div class="container" style="text-align: center;">
-  <div class="profile">
-    <div class="avatar">
-      <%= image_tag @profile_user.avatar, class: "rounded-circle", style: "width: 300%;" %>
-    </div>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <div class="profile mb-4">
+        <div class="avatar mb-3">
+          <%= image_tag @profile_user.avatar, class: "rounded-circle", style: "width: 300%; margin: 0 auto;" %>
+        </div>
 
-    <div class="social-info">
-      <p></p> <%= rand(1..320) %> viagens <%= rand(100..10_000_000) %> Seguidores <%= rand(100..10_000_000) %> Seguindo
-    </div></p>
+        <div class="social-info mb-3">
+          <p class="h5">
+            <%= rand(1..320) %> viagens • <%= rand(100..10_000_000) %> Seguidores • <%= rand(100..10_000_000) %> Seguindo
+          </p>
+        </div>
+      </div>
+
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Bio</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ac libero ultricies aliquam. Nullam nec purus ac libero ultricies aliquam.</p>
+        </div>
+      </div>
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="#" class="text-decoration-none">Lugares Salvos</a>
+        </li>
+        <li class="list-group-item">
+          <%= link_to "Informações", profile_user_info_path(@profile_user), class: "text-decoration-none" %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to "Avaliações", review_path(@profile_user), class: "text-decoration-none" %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "text-decoration-none text-danger" %>
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="card container text-center">
-    <div class="card-body">
-      <h5 class="card-title">Bio</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ac libero ultricies aliquam. Nullam nec purus ac libero ultricies aliquam.</p>
-    </div>
-  </div>
-  <div class="links" style="text-align: center;">
-    <ul class="list-group list-unstyled">
-      <li><a href="#" style="text-decoration: none;">Lugares Salvos</a></li>
-      <li><%= link_to "Informações", profile_user_info_path(@profile_user), style: "text-decoration: none;" %></li>
-      <li><%= link_to "Avaliações", review_path(@profile_user), style: "text-decoration: none;" %></li>
-      <li><%= link_to "Sair", destroy_user_session_path, method: :delete, style: "text-decoration: none;" %></li>
-    </ul>
   </div>
 </div>

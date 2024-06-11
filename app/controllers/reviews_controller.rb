@@ -14,11 +14,11 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-
+    @review = current_user.reviews.new(review_params)
     if @review.save
-      redirect_to @review, notice: 'Review was successfully created.'
+      redirect_to @review, notice: 'Review successfully created.'
     else
+      Rails.logger.info(@review.errors.full_messages)  # Log errors
       render :new
     end
   end
@@ -46,6 +46,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:title, :content, :rating)
+    params.require(:review).permit(:title, :comment, :rate, :city_id)
   end
 end
