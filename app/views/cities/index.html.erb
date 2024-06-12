@@ -1,3 +1,7 @@
+<div class="banner p-5" style="background: linear-gradient(to top right, #003366 25%, #660033 80%);">
+  <h1 class="display-4" style="color: white;">Cidades</h1>
+</div>
+
 <div class="row justify-content-center" style="background-color: rgb(235, 233, 230)">
   <div class="col-sm-8 my-5" style="width: 35%">
     <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
@@ -6,10 +10,10 @@
             class: "form-control",
             placeholder: "Digite um destino"
         %>
-      <%= submit_tag "Buscar", name: "", class: "btn btn-primary fw-semibold" %>
+      <%= submit_tag "Buscar", name: "", class: "btn btn-primary fw-semibold ms-1" %>
     <% end %>
   </div>
-<div/>
+</div>
 
 <div id="map" style="width: 100%; height: 300px;"
   data-controller="map"
