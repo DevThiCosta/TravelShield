@@ -5,7 +5,7 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     markers: Array,
-    markers_area: Array,
+    dangerAreas: Array,
   }
 
   connect() {
@@ -18,6 +18,7 @@ export default class extends Controller {
       center: [ -43.180856, -22.791097 ],
       zoom: 8.5
     })
+    console.log(this.dangerAreasValue)
     this.addMarkersToMap()
     this.fitMapToMarkers()
   }

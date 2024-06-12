@@ -11,8 +11,15 @@ class CitiesController < ApplicationController
 
   def show
     @city_reviews = Review.where(city_id: params[:id])
-    
+
     @city = City.find(params[:id])
+    @danger_areas = @city.danger_areas
+    @danger_markers = @danger_areas.geocoded.map do |city|{
+        lat: city.latitude,
+        lng: city.longitude
+      }
+    end
+    
     @markers = [{
         lat: @city.latitude,
         lng: @city.longitude
