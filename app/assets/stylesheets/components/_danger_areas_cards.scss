@@ -1,13 +1,14 @@
 .danger-areas-cards-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  margin: 0 auto;
 }
 
 .danger-areas-cards {
   overflow: hidden;
   height: 120px;
-  width: 600px;
+  width: 580px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -18,16 +19,17 @@
   height: 100%;
   width: 160px;
   object-fit: cover;
+  background-size: cover;
 }
 
 .danger-areas-cards h2 {
-  font-size: 16px;
+  font-size: 28px;
   font-weight: bold;
   margin: 0;
 }
 
 .danger-areas-cards p {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
