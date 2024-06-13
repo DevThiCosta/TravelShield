@@ -19,7 +19,7 @@ class CitiesController < ApplicationController
         lng: city.longitude
       }
     end
-    
+
     @markers = [{
         lat: @city.latitude,
         lng: @city.longitude
