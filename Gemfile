@@ -56,7 +56,6 @@ gem "pg_search"
 gem 'conecta_address_br'
 gem "cloudinary"
 gem "geocoder"
-gem 'pagy', '~> 8.4', '>= 8.4.4'
 
 
 group :development, :test do
