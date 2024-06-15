@@ -1,16 +1,8 @@
 <div class="container my-5">
-  <h1 class="text-center mb-4">Bem-vindo, <%= current_user.name %>!</h1>
-
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2>Suas Avaliações</h2>
-    <div>
-      <%= link_to 'Nova Avaliação', new_review_path, class: 'btn btn-primary btn-sm me-2' %>
-      <%= link_to 'Todas as Avaliações', reviews_path, class: 'btn btn-secondary btn-sm' %>
-    </div>
-  </div>
+  <h1 class="text-center mb-4">Avaliações de <%= @user.name %></h1>
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <% current_user.reviews.each do |review| %>
+    <% @reviews.each do |review| %>
       <div class="col">
         <div class="card h-100 shadow-sm border-0">
           <div class="card-body">
@@ -24,4 +16,14 @@
       </div>
     <% end %>
   </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <%= link_to 'Voltar para todas as avaliações', reviews_path, class: 'btn btn-secondary' %>
+  </div>
+
+  <% if defined?(@pagy) %>
+    <div class="d-flex justify-content-center mt-4">
+      <%= pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+    </div>
+  <% end %>
 </div>
