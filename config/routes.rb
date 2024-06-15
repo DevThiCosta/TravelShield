@@ -11,11 +11,17 @@ root to: "pages#home"
   get 'pages/contact' => 'pages#contact'
   get 'pages/terms' => 'pages#terms'
   get 'pages/tips' => 'pages#tips'
+  get 'pages/plans' => 'pages#plans'
+  get '/profile_user/:id/info', to: 'profile_user#info', as: 'profile_user_info'
+  get '/reviews/:id/info', to: 'reviews#show_info', as: 'reviews_info'
+  get 'users/:id/reviews', to: 'reviews#user_reviews', as: 'user_reviews'
+
   resources :reviews
   resources :danger_areas
   resources :profile_user
   resources :cities
-  get '/profile_user/:id/info', to: 'profile_user#info', as: 'profile_user_info'
+  resources :sights
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
