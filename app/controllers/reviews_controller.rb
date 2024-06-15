@@ -4,7 +4,8 @@ class ReviewsController < ApplicationController
   include Pagy::Backend
 
   def index
-    @reviews = Review.all
+    @pagy, @reviews = pagy(Review.all, items: 12)
+    @filtered_reviews = params[:rating].present? ? @reviews.select { |review| review.rate == params[:rating].to_i } : @reviews
   end
 
   def show
