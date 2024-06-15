@@ -15,4 +15,7 @@ class PagesController < ApplicationController
 
   def tips
   end
+
+  def plans
+  end
 end

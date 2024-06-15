@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  
+  require 'pagy/extras/bootstrap'
+  include Pagy::Backend
 
   def index
     @reviews = Review.all
@@ -8,6 +9,15 @@ class ReviewsController < ApplicationController
 
   def show
     @user_reviews = Review.where(user_id: params[:id])
+  end
+
+  def show_info
+    @review = Review.find(params[:id])
+  end
+
+  def user_reviews
+    @user = User.find(params[:id])
+    @pagy, @reviews = pagy(@user.reviews, items: 10)
   end
 
   def new
