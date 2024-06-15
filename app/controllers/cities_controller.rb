@@ -1,29 +1,30 @@
 class CitiesController < ApplicationController
+  include Pagy::Backend
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:query].present?
-      @cities = City.search_any_location(params[:query])
+      @pagy, @cities = pagy(City.search_any_location(params[:query]), items: 10)
     else
-      @cities = City.all
+      @pagy, @cities = pagy(City.all, items: 10)
     end
   end
 
   def show
     @city_reviews = Review.where(city_id: params[:id])
-
     @city = City.find(params[:id])
     @danger_areas = @city.danger_areas
-    @danger_markers = @danger_areas.geocoded.map do |city|{
+    @danger_markers = @danger_areas.geocoded.map do |city|
+      {
         lat: city.latitude,
         lng: city.longitude
       }
     end
-    
+
     @markers = [{
-        lat: @city.latitude,
-        lng: @city.longitude
-      }]
+      lat: @city.latitude,
+      lng: @city.longitude
+    }]
   end
 
   def new

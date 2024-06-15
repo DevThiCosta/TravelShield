@@ -29,7 +29,7 @@
               <li class="nav-item dropdown">
               <% if current_user %>
                 <%= link_to profile_user_path(current_user), class: "nav-link dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" do %>
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+                <%= image_tag current_user.avatar, class: "avatar" %>
                 <% end %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="<%= profile_user_path(current_user) %>">Perfil</a>

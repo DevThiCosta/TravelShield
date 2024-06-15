@@ -15,7 +15,7 @@ cities_photos = "https://res.cloudinary.com/dkcetjel5/image/upload/v1716668402/f
     address: Faker::Address.full_address,
     birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
     password: "123456",
-    avatar: "https://kitt.lewagon.com/placeholder/users/ssaunier"
+    avatar: Faker::Avatar.image
   )
 end
 

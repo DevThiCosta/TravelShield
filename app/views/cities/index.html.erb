@@ -21,13 +21,13 @@
   </div>
 </div>
 
-<div class="cards mt-3">
+<div class="cards mt-3 d-flex flex-wrap justify-content-center">
   <% @cities.each do |city| %>
-    <div class="card-trip">
+    <div class="card-trip m-2 shadow" style="border-radius: 20px; overflow: hidden; width: 18rem;">
       <%= link_to city_path(city) do %>
-        <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg") %>
+        <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg", style: "width: 100%; height: auto; border-radius: 20px 20px 0 0;") %>
       <% end %>
-      <div class="card-trip-infos">
+      <div class="card-trip-infos p-3">
         <div>
           <h5 class="card-section-title"><%= city.name %></h5>
           <p>Short description here!</p>
@@ -36,3 +36,5 @@
     </div>
   <% end %>
 </div>
+
+<%= pagy_nav(@pagy) %>

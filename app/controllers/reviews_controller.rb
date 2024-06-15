@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  
 
   def index
     @reviews = Review.all
@@ -10,7 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new
+    @pagy, @reviews = pagy(Review.all, items: 12)
   end
 
   def create
