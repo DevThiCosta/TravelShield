@@ -22,8 +22,8 @@
           </div>
           <div class="d-flex justify-content-between mt-4">
             <%= link_to 'Ver mais avaliações deste usuário', user_reviews_path(@review.user), class: 'btn btn-primary' %>
-            <%= link_to 'Ver mais sobre esta cidade', city_path(@review.city), class: 'btn btn-secondary' %>
-            <%= link_to 'Voltar para Avaliações', reviews_path, class: 'btn btn-outline-secondary' %>
+            <%= link_to "Ver mais sobre #{@review.city.name}", city_path(@review.city), class: 'btn btn-secondary' %>
+            <%= link_to 'Ver Avaliações', reviews_path, class: 'btn btn-outline-secondary' %>
           </div>
         </div>
       </div>

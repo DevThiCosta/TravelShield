@@ -1,60 +1,62 @@
-  <div class="row">
-    <!-- City Details Section -->
-    <div class="col-md-8 mb-4">
-      <h1 class="text-center fw-bold"><%= @city.name %> - <%= @city.state %></h1>
-      <div class="description mt-5" style="margin-left: 20px;">
-        <h3 class="mb-4">Descrição:</h3>
-        <p>Esta cidade brasileira é um foco de novas tendências no mundo da cultura, da moda e da gastronomia. Combina a criatividade de seus artistas e designers com o respeito e cuidado pelos locais tradicionais de sempre. Aberta para o mar e famosa por sua arquitetura modernista, é uma das capitais mais trendy do país. Seu centro histórico encanta com seu charme, enquanto os bairros modernos exalam vanguarda. Uma cidade que vale a pena visitar repetidamente. 😎🏖️🌞</p>
-        <h3>Fique de Olho:</h3>
-        <% if @city.danger_areas.any? %>
-          <ul class="list-group mb-4">
-        <% @city.danger_areas.each do |danger_area| %>
-          <li class="list-group-item">
-            <%= link_to danger_area.name, danger_area_path(danger_area.id), class: "text-decoration-none text-dark" %>
-          </li>
-        <% end %>
-          </ul>
-        <% else %>
-          <p>Fique tranquilo, nenhuma área perigosa encontrada😊</p>
-        <% end %>
-        <div class="reviews mt-4">
-          <h3 class="mb-4">Avaliações:</h3>
-          <% if @city.reviews.present? %>
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <% @city.reviews.each_with_index do |review, index| %>
-          <div class="carousel-item <%= 'active' if index == 0 %>">
-            <div class="card border-0 shadow-sm p-3">
-              <h5 class="card-title"><%= review.title %></h5>
-              <p class="card-text"><%= review.comment %></p>
-              <p><strong>Classificação:</strong> <%= review.rate %></p>
-            </div>
-          </div>
-            <% end %>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-          <% else %>
-        <p>Nenhuma avaliação disponível.</p>
+<div class="row">
+  <!-- City Details Section -->
+  <div class="col-md-8 mb-4">
+    <h1 class="text-center fw-bold"><%= @city.name %> - <%= @city.state %></h1>
+    <div class="description mt-5" style="margin-left: 20px;">
+      <h3 class="mb-4">Descrição:</h3>
+      <p>Esta cidade brasileira é um foco de novas tendências no mundo da cultura, da moda e da gastronomia. Combina a criatividade de seus artistas e designers com o respeito e cuidado pelos locais tradicionais de sempre. Aberta para o mar e famosa por sua arquitetura modernista, é uma das capitais mais trendy do país. Seu centro histórico encanta com seu charme, enquanto os bairros modernos exalam vanguarda. Uma cidade que vale a pena visitar repetidamente. 😎🏖️🌞</p>
+      <h3>Fique de Olho:</h3>
+      <% if @city.danger_areas.any? %>
+        <ul class="list-group mb-4">
+          <% @city.danger_areas.each do |danger_area| %>
+            <li class="list-group-item">
+              <%= link_to danger_area.name, danger_area_path(danger_area.id), class: "text-decoration-none text-dark" %>
+            </li>
           <% end %>
-        </div>
-        <div class="mt-4">
-          <%= link_to "Voltar para Cidades", cities_path, class: "btn btn-info" %>
-        </div>
+        </ul>
+      <% else %>
+        <p>Fique tranquilo, nenhuma área perigosa encontrada😊</p>
+      <% end %>
+      <div class="reviews mt-4">
+        <h3 class="mb-4">O que a comunidade está pensando:</h3>
+        <% if @city.reviews.present? %>
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <% @city.reviews.each_with_index do |review, index| %>
+                <div class="carousel-item <%= 'active' if index == 0 %>">
+                  <div class="card border-0 shadow-sm p-3">
+                    <h5 class="card-title"><%= review.title %></h5>
+                    <p class="card-text"><%= review.comment %></p>
+                    <p><strong>Avaliações:</strong> <%= review.rate %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        <% else %>
+          <p>Nenhuma avaliação disponível.</p>
+        <% end %>
+      </div>
+      <div class="mt-4 d-flex justify-content-between">
+        <%= link_to "Voltar para Cidades", cities_path, class: "btn btn-info" %>
+        <%= link_to "Ver Todas as Avaliações", reviews_path, class: "btn btn-secondary" %>
       </div>
     </div>
-    <!-- Map Section -->
-    <div class="col-md-4">
+  </div>
+  <!-- Map Section -->
+  <div class="col-md-4">
     <div class="row">
       <div class="col-md-12" style="height: 100vh;">
-        <div id="map" style="width: 100%; height: 100%; margin-left: 10px;"
+        <div id="map"
+          style="width: 100%; height: 100%; margin-left: 10px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-danger-areas-value="<%= @danger_markers.to_json %>"
