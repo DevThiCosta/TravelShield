@@ -1,14 +1,16 @@
 <div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-md-8 text-center">
-      <div class="profile mb-4">
-        <div class="avatar mb-3">
-          <%= image_tag @profile_user.avatar, class: "rounded-circle", style: "width: 300%; margin: 0 auto;" %>
+      <div class="profile bg-light p-4 rounded shadow-sm mb-4">
+        <div class="avatar mb-3 mx-auto" style="width: 150px; height: 150px;">
+          <%= image_tag @profile_user.avatar, class: "rounded-circle w-100 h-100" %>
         </div>
-
-        <div class="social-info mb-3">
+        <h2 class="font-weight-bold mb-3"><%= @profile_user.name %></h2>
+        <div class="social-info mb-4">
           <p class="h5">
-            <%= rand(1..320) %> viagens • <%= rand(100..10_000_000) %> Seguidores • <%= rand(100..10_000_000) %> Seguindo
+            <i class="fas fa-plane"></i> <%= format_number_with_suffix(rand(1..320)) %> viagens
+            • <i class="fas fa-users"></i> <%= format_number_with_suffix(rand(100..10_000_000)) %> Seguidores
+            • <i class="fas fa-user-friends"></i> <%= format_number_with_suffix(rand(100..10_000_000)) %> Seguindo
           </p>
         </div>
       </div>
@@ -21,17 +23,21 @@
       </div>
 
       <ul class="list-group">
-        <li class="list-group-item">
-          <a href="#" class="text-decoration-none">Lugares Salvos</a>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= current_user == @profile_user ? link_to("Lugares Salvos", "#", class: "text-decoration-none") : '<a href="#" class="text-decoration-none disabled"><i class="fas fa-lock"></i> Lugares Salvos</a>'.html_safe %>
+          <i class="fas fa-bookmark"></i>
         </li>
-        <li class="list-group-item">
-          <%= link_to "Informações", profile_user_info_path(@profile_user), class: "text-decoration-none" %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= current_user == @profile_user ? link_to("Informações", profile_user_info_path(@profile_user), class: "text-decoration-none") : '<a href="#" class="text-decoration-none disabled"><i class="fas fa-lock"></i> Informações</a>'.html_safe %>
+          <i class="fas fa-info-circle"></i>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
           <%= link_to "Avaliações", review_path(@profile_user), class: "text-decoration-none" %>
+          <i class="fas fa-star"></i>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
           <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "text-decoration-none text-danger" %>
+          <i class="fas fa-sign-out-alt text-danger"></i>
         </li>
       </ul>
     </div>

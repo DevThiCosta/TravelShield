@@ -1,13 +1,13 @@
 <div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-md-8 text-center">
-      <div class="profile mb-4" >
+      <div class="profile bg-light p-4 rounded shadow-sm mb-4">
         <!-- Avatar -->
-        <div class="avatar mb-3" style="margin: 0 auto;">
-          <%= image_tag @profile_user.avatar, class: "rounded-circle", style: "width: 300%;" %>
+        <div class="avatar mb-3 mx-auto" style="width: 150px; height: 150px;">
+          <%= image_tag @profile_user.avatar, class: "rounded-circle w-100 h-100" %>
         </div>
         <!-- Username -->
-        <h2 class="username"><%= @profile_user.name %></h2>
+        <h2 class="font-weight-bold mb-3"><%= @profile_user.name %></h2>
       </div>
 
       <div class="card shadow-sm">
@@ -58,4 +58,5 @@
       </div>
     </div>
   </div>
+  <button onclick="window.history.back()" class="btn btn-primary mb-4">Voltar</button>
 </div>

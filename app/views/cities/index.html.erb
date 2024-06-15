@@ -2,8 +2,8 @@
   <h1 class="display-4" style="color: white;">Cidades</h1>
 </div>
 
-<div class="row justify-content-center" style="background-color: rgb(235, 233, 230)">
-  <div class="col-sm-8 my-5" style="width: 35%">
+<div class="row justify-content-center" style="background-color: rgb(235, 233, 230); position: relative;">
+  <div class="col-sm-8 my-5" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 35%; z-index: 10;">
     <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
@@ -13,21 +13,21 @@
       <%= submit_tag "Buscar", name: "", class: "btn btn-primary fw-semibold ms-1" %>
     <% end %>
   </div>
+
+  <div id="map" style="width: 100%; height: 300px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
 
-<div id="map" style="width: 100%; height: 300px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
-<div class="cards mt-3">
+<div class="cards mt-3 d-flex flex-wrap justify-content-center">
   <% @cities.each do |city| %>
-    <div class="card-trip">
+    <div class="card-trip m-2 shadow" style="border-radius: 20px; overflow: hidden; width: 18rem;">
       <%= link_to city_path(city) do %>
-        <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg") %>
+        <%= image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg", style: "width: 100%; height: auto; border-radius: 20px 20px 0 0;") %>
       <% end %>
-      <div class="card-trip-infos">
+      <div class="card-trip-infos p-3">
         <div>
           <h5 class="card-section-title"><%= city.name %></h5>
           <p>Short description here!</p>
@@ -36,3 +36,5 @@
     </div>
   <% end %>
 </div>
+
+<%= pagy_nav(@pagy) %>
