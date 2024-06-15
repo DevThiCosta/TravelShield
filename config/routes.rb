@@ -12,6 +12,7 @@ root to: "pages#home"
   get 'pages/terms' => 'pages#terms'
   get 'pages/tips' => 'pages#tips'
   get 'pages/plans' => 'pages#plans'
+  get 'pages/prices' => 'pages#prices'
   get '/profile_user/:id/info', to: 'profile_user#info', as: 'profile_user_info'
   get '/reviews/:id/info', to: 'reviews#show_info', as: 'reviews_info'
   get 'users/:id/reviews', to: 'reviews#user_reviews', as: 'user_reviews'
