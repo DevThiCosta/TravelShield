@@ -2,20 +2,21 @@
   <h1 class="display-4" style="color: white;">Áreas Perigosas</h1>
 </div>
 
-<div class="container col-10">
-  <div class="row justify-content-around mt-3 mb-3">
-    <% @danger_areas.each do |danger_area| %>
-    <div class="danger-areas-cards mb-2 mt-2">
-          <%= link_to danger_area_path(danger_area.id) do %>
-            <%= image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg") %>
-          <% end %>
-        <div class="danger-areas-cards-infos">
-          <h2><%= danger_area.name %></h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
+<div class="row justify-content-around mt-4 mb-4">
+  <% @danger_areas.each do |danger_area| %>
+  <div class="danger-areas-cards mb-2 mt-2">
+        <%= link_to danger_area_path(danger_area.id) do %>
+          <%= image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg") %>
+        <% end %>
+      <div class="danger-areas-cards-infos">
+        <h2><%= danger_area.name %></h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
       </div>
-      <% end %>
-      <%= link_to "Nova Área", new_danger_area_path, class: "btn btn-primary" %>
     </div>
+  <% end %>
   </div>
+</div>
+
+<div>
+  <%= link_to "Nova Área", new_danger_area_path, class: "btn btn-primary" %>
 </div>

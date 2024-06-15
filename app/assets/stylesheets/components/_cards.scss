@@ -83,3 +83,21 @@
   top: -20px;
   width: 40px;
 }
+
+.cards a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.cards a:visited {
+  color: grey;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.cards a:hover {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+}

@@ -24,17 +24,17 @@
   { name: "Santa Catarina", url: "https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoFlorianopolis_kxmapz.jpg", description: "Santa Catarina é um estado com belas paisagens naturais, incluindo a Serra do Rio do Rastro e a Ilha de Florianópolis." }
 ] %>
 
-<div class="cards mt-4 mb-4 me-4 ms-4">
+<div class="cards m-5">
   <% states_cards.each do |state_card| %>
-    <div class="card-trip" style="width: 100%">
-      <%= link_to cities_path do %>
-        <%= image_tag(state_card[:url], class: "card-img-top") %>
-      <% end %>
-      <div class="card-body">
-        <h2 class="card-title"><%= state_card[:name] %></h2>
-        <p class="card-text"><%= state_card[:description] %></p>
+    <%= link_to cities_path do %>
+      <div class="card-trip" style="width: 100%">
+          <%= image_tag(state_card[:url], class: "card-img-top") %>
+        <div class="card-body">
+          <h2 class="card-title"><%= state_card[:name] %></h2>
+          <p class="card-text"><%= state_card[:description] %></p>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
