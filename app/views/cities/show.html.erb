@@ -18,7 +18,7 @@
         <p>Fique tranquilo, nenhuma área perigosa encontrada😊</p>
       <% end %>
       <div class="reviews mt-4">
-        <h3 class="mb-4">Avaliações:</h3>
+        <h3 class="mb-4">O que a comunidade está pensando:</h3>
         <% if @city.reviews.present? %>
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -27,7 +27,7 @@
                   <div class="card border-0 shadow-sm p-3">
                     <h5 class="card-title"><%= review.title %></h5>
                     <p class="card-text"><%= review.comment %></p>
-                    <p><strong>Classificação:</strong> <%= review.rate %></p>
+                    <p><strong>Avaliações:</strong> <%= review.rate %></p>
                   </div>
                 </div>
               <% end %>
