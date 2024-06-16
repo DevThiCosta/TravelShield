@@ -4,9 +4,17 @@ class ReviewsController < ApplicationController
 
 
   def index
-    @pagy, @reviews = pagy(Review.all, items: 12)
-    @filtered_reviews = params[:rating].present? ? @reviews.select { |review| review.rate == params[:rating].to_i } : @reviews
+    # Aplicar a filtragem se o parâmetro de classificação (rating) estiver presente
+    if params[:rating].present?
+      filtered_reviews = Review.where(rate: params[:rating])
+    else
+      filtered_reviews = Review.all
+    end
+
+    # Paginação usando o Pagy após aplicar a filtragem
+    @pagy, @filtered_reviews = pagy(filtered_reviews, items: 10)
   end
+
 
   def show
     @user_reviews = Review.where(user_id: params[:id])
