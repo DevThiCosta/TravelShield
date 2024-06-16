@@ -4,12 +4,12 @@
       <form class="d-flex align-items-center" action="<%= reviews_path %>" method="get">
         <label for="rating" class="me-2">Filtros:</label>
         <select name="rating" id="rating" class="form-select me-2 w-auto">
-          <option value="" selected>Todos</option>
-          <option value="1">★☆☆☆☆</option>
-          <option value="2">★★☆☆☆</option>
-          <option value="3">★★★☆☆</option>
-          <option value="4">★★★★☆</option>
-          <option value="5">★★★★★</option>
+          <option value="" <%= "selected" if params[:rating].blank? %>>Todos</option>
+          <option value="1" <%= "selected" if params[:rating] == "1" %>>★☆☆☆☆</option>
+          <option value="2" <%= "selected" if params[:rating] == "2" %>>★★☆☆☆</option>
+          <option value="3" <%= "selected" if params[:rating] == "3" %>>★★★☆☆</option>
+          <option value="4" <%= "selected" if params[:rating] == "4" %>>★★★★☆</option>
+          <option value="5" <%= "selected" if params[:rating] == "5" %>>★★★★★</option>
         </select>
         <button type="submit" class="btn btn-primary">Aplicar Filtro</button>
       </form>
@@ -24,7 +24,7 @@
             <div class="card-body d-flex flex-column">
               <h5 class="card-title mb-2"><%= link_to review.user.name, profile_user_path(review.user) %></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= review.title %></h6>
-                <p class="card-text mt-auto mb-2">Avaliação: <%= star_rating(review.rate) %></p>
+              <p class="card-text mt-auto mb-2">Avaliação: <%= star_rating(review.rate) %></p>
               <div class="mt-auto d-flex justify-content-end">
                 <%= link_to reviews_info_path(review), class: "text-secondary" do %>
                   <i class="fas fa-info"></i>
@@ -39,6 +39,7 @@
     <% end %>
   </div>
 
- <div class="d-flex justify-content-center mt-4">
-<%== pagy_bootstrap_combo_nav_js(@pagy) %>
+  <div class="d-flex justify-content-center mt-4">
+    <%= pagy_bootstrap_combo_nav_js(@pagy, params: { rating: params[:rating] }) %>
+  </div>
 </div>
