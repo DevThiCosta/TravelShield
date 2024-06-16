@@ -1,12 +1,12 @@
 class CitiesController < ApplicationController
-  include Pagy::Backend
+
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:query].present?
-      @pagy, @cities = pagy(City.search_any_location(params[:query]), items: 12)
+      @pagy, @cities = pagy(City.search_any_location(params[:query]), items: 8)
     else
-      @pagy, @cities = pagy(City.all, items: 12)
+      @pagy, @cities = pagy(City.all, items: 8)
     end
   end
 

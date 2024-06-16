@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   require 'pagy/extras/bootstrap'
-  include Pagy::Backend
+
 
   def index
     @pagy, @reviews = pagy(Review.all, items: 12)
