@@ -27,7 +27,7 @@
 <div class="cards m-5">
   <% states_cards.each do |state_card| %>
     <%= link_to cities_path do %>
-      <div class="card-trip" style="width: 100%">
+      <div class="card-trip" style="width: 100% h-100">
           <%= image_tag(state_card[:url], class: "card-img-top") %>
         <div class="card-body">
           <h2 class="card-title"><%= state_card[:name] %></h2>
@@ -71,8 +71,8 @@
     <img src="https://res.cloudinary.com/dkcetjel5/image/upload/v1718482964/money-sign-shield-_u5fmgp.png" class="img-fluid" width="400px" alt="´Icone-de-cifrao-no-escudo">
   </div>
   <div class="col-12 col-md-8 text-start pe-md-5">
-    <h2>Dicas</h2>
-    <p>Viajar é uma oportunidade única para expandir seus horizontes e aprender coisas novas. Não tenha medo de sair da sua zona de conforto e se aventurar em lugares desconhecidos. Explore o mundo com curiosidade e coragem! Aprenda algumas palavras na língua local, experimente a comida típica e faça amigos. Lembre-se de sorrir e aproveitar cada momento.</p>
-    <%= link_to "Saiba mais", pages_tips_path, class: "btn btn-warning fw-semibold my-2 p-3" %>
+  <h2>Planos</h2>
+<p>Assinar um dos nossos planos oferece diversas vantagens exclusivas que tornarão sua experiência de viagem ainda mais tranquila e prazerosa. Como assinante, você terá acesso a ferramentas exclusivas, como rastreamento de itinerário, alertas personalizados de viagem e um assistente virtual para ajudá-lo em qualquer situação. Além disso, nossos planos incluem suporte prioritário 24 horas, garantindo atendimento rápido e eficiente sempre que precisar. Viaje com mais segurança e aproveite benefícios únicos ao se tornar um assinante!</p>
+    <%= link_to "Saiba mais", pages_plans_path, class: "btn btn-warning fw-semibold my-2 p-3" %>
   </div>
 </div>
