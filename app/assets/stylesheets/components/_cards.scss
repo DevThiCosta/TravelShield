@@ -43,8 +43,11 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 16px 16px 16px 16px;
+  margin: 16px;
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;   /* Certifique-se de que todos os cartões tenham a mesma altura */
 }
 
 .card-trip img {
@@ -68,7 +71,6 @@
   text-justify: auto;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -82,6 +84,10 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-body {
+  flex-grow: 1;  /* Permite que a parte do corpo do cartão expanda para preencher o espaço disponível */
 }
 
 .cards a:link {
