@@ -1,5 +1,5 @@
 module ApplicationHelper
-  include Pagy::Frontend
+include Pagy::Frontend
 
   def format_number_with_suffix(number)
     return "#{(number / 1_000_000.0).round(1)}M" if number >= 1_000_000

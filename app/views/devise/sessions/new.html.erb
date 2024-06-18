@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <div class="card shadow-sm">
         <div class="card-body p-4">
-          <h2 class="text-center mb-4">Log in</h2>
+          <h2 class="text-center mb-4">Acessar</h2>
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' }) do |f| %>
             <div class="form-group mb-3">
               <%= f.input :email,
@@ -12,18 +12,18 @@
                           input_html: { autocomplete: "email", class: "form-control" } %>
             </div>
             <div class="form-group mb-3">
-              <%= f.input :password,
+              <%= f.input :password, label: "Senha",
                           required: false,
                           input_html: { autocomplete: "current-password", class: "form-control" } %>
             </div>
             <% if devise_mapping.rememberable? %>
               <div class="form-check mb-3">
-                <%= f.input :remember_me, as: :boolean, label: false, input_html: { class: "form-check-input" } %>
-                <label class="form-check-label" for="user_remember_me">Remember me</label>
+                <%= f.check_box :remember_me, required: false, class: "form-check-input" %>
+                <%= f.label :remember_me, "Lembrar", class: "form-check-label" %>
               </div>
             <% end %>
             <div class="d-grid">
-              <%= f.button :submit, "Log in", class: "btn btn-primary" %>
+              <%= f.button :submit, "Acessar", class: "btn btn-primary" %>
             </div>
           <% end %>
           <div class="text-center mt-3">
