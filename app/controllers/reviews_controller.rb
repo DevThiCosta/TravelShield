@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     end
 
     # Paginação usando o Pagy após aplicar a filtragem
-    @pagy, @filtered_reviews = pagy(filtered_reviews, items: 10)
+    @pagy, @filtered_reviews = pagy(filtered_reviews, items: 12)
   end
 
 

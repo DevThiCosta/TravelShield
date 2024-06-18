@@ -1,16 +1,16 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dkcetjel5/image/upload/v1717543613/fotoAviaoParaBanner-travelShield_q00wi7.jpg);">
-  <div class="container">
+  <div class="container text-center text-sm-start">
     <h1>TravelShield <strong>informa sobre a segurança do destino</strong> para <strong>quem quer viajar</strong>!</h1>
     <p>Deixe a sua viagem mais segura com informações sobre o seu destino.</p>
     <div class="row justify-content-center">
-      <div class="col-sm-8 my-5" style="width: 50%;">
+      <div class="col-12 col-sm-10 col-md-8 my-5" style="width: 100%;">
         <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
-                class: "form-control",
+                class: "form-control flex-grow-1",
                 placeholder: "Digite um destino"
             %>
-          <%= submit_tag "Buscar", name: "", class: "btn btn-primary fw-semibold" %>
+          <%= submit_tag "Buscar", name: "", class: "btn btn-primary fw-semibold ms-2" %>
         <% end %>
       </div>
     </div>
@@ -24,41 +24,41 @@
   { name: "Santa Catarina", url: "https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoFlorianopolis_kxmapz.jpg", description: "Santa Catarina é um estado com belas paisagens naturais, incluindo a Serra do Rio do Rastro e a Ilha de Florianópolis." }
 ] %>
 
-<div class="cards m-5">
+<div class="cards m-5 text-center text-sm-start">
   <% states_cards.each do |state_card| %>
     <%= link_to cities_path do %>
-      <div class="card-trip" style="width: 100% h-100">
-          <%= image_tag(state_card[:url], class: "card-img-top") %>
+      <div class="card-trip" style="width: 100%;">
+        <%= image_tag(state_card[:url], class: "card-img-top") %>
         <div class="card-body">
           <h2 class="card-title"><%= state_card[:name] %></h2>
-          <p class="card-text"><%= state_card[:description] %></p>
+          <p class="card-text" style="text-align: center;"><%= state_card[:description] %></p>
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
 
-<div class="home-section home-section-three d-flex flex-wrap align-items-center">
-  <div class="col-12 col-md-4 text-center mb-4">
+<div class="home-section home-section-three d-flex flex-wrap align-items-center text-center text-sm-start">
+  <div class="col-12 col-md-4 mb-4">
     <img src="https://res.cloudinary.com/dkcetjel5/image/upload/v1717719245/iconeDeAlerta-vermelho_o9ybdl.png" class="img-fluid" width="230px" alt="Ícone de alerta">
   </div>
-  <div class="col-12 col-md-8 text-start pe-md-5">
+  <div class="col-12 col-md-8 pe-md-5">
     <h2>Áreas perigosas</h2>
-    <p>Antes de chegar ao destino, saiba sobre áreas que podem estar associadas a riscos à sua segurança e à sua saúde:</p>
+    <p style="text-align: justify;">Antes de chegar ao destino, saiba sobre áreas que podem estar associadas a riscos à sua segurança e à sua saúde:</p>
     <ul>
-      <li>Bairros de Alta Criminalidade</li>
-      <li>Problemas de Saúde e Higiene</li>
-      <li>Tráfego Intenso e Acidentes</li>
-      <li>Áreas Naturais Perigosas</li>
+      <li style="text-align: justify;">Bairros de Alta Criminalidade</li>
+      <li style="text-align: justify;">Problemas de Saúde e Higiene</li>
+      <li style="text-align: justify;">Tráfego Intenso e Acidentes</li>
+      <li style="text-align: justify;">Áreas Naturais Perigosas</li>
     </ul>
     <%= link_to "Saiba mais", danger_areas_path, class: "btn btn-warning fw-semibold my-2 p-3" %>
   </div>
 </div>
 
-<div class="home-section home-section-four d-flex flex-wrap align-items-center">
-  <div class="col-12 col-md-8 text-start ps-md-5 mb-4">
+<div class="home-section home-section-four d-flex flex-wrap align-items-center text-center text-sm-start">
+  <div class="col-12 col-md-8 ps-md-5 mb-4">
     <h2>Dicas</h2>
-    <p>Viajar é uma oportunidade única para expandir seus horizontes e aprender coisas novas. Não tenha medo de sair da sua zona de conforto e se aventurar em lugares desconhecidos. Explore o mundo com curiosidade e coragem! Aprenda algumas palavras na língua local, experimente a comida típica e faça amigos. Lembre-se de sorrir e aproveitar cada momento.</p>
+    <p style="text-align: justify;">Viajar é uma oportunidade única para expandir seus horizontes e aprender coisas novas. Não tenha medo de sair da sua zona de conforto e se aventurar em lugares desconhecidos. Explore o mundo com curiosidade e coragem! Aprenda algumas palavras na língua local, experimente a comida típica e faça amigos. Lembre-se de sorrir e aproveitar cada momento.</p>
     <%= link_to "Saiba mais", pages_tips_path, class: "btn btn-warning fw-semibold my-2 p-3" %>
   </div>
   <div class="col-12 col-md-4 text-center">
@@ -66,13 +66,13 @@
   </div>
 </div>
 
-<div class="home-section home-section-five d-flex flex-wrap align-items-center">
-  <div class="col-12 col-md-4 text-center mb-4">
+<div class="home-section home-section-five d-flex flex-wrap align-items-center text-center text-sm-start">
+  <div class="col-12 col-md-4 mb-4">
     <img src="https://res.cloudinary.com/dkcetjel5/image/upload/v1718482964/money-sign-shield-_u5fmgp.png" class="img-fluid" width="400px" alt="´Icone-de-cifrao-no-escudo">
   </div>
-  <div class="col-12 col-md-8 text-start pe-md-5">
-  <h2>Planos</h2>
-<p>Assinar um dos nossos planos oferece diversas vantagens exclusivas que tornarão sua experiência de viagem ainda mais tranquila e prazerosa. Como assinante, você terá acesso a ferramentas exclusivas, como rastreamento de itinerário, alertas personalizados de viagem e um assistente virtual para ajudá-lo em qualquer situação. Além disso, nossos planos incluem suporte prioritário 24 horas, garantindo atendimento rápido e eficiente sempre que precisar. Viaje com mais segurança e aproveite benefícios únicos ao se tornar um assinante!</p>
+  <div class="col-12 col-md-8 pe-md-5">
+    <h2>Planos</h2>
+    <p style="text-align: justify;">Assinar um dos nossos planos oferece diversas vantagens exclusivas que tornarão sua experiência de viagem ainda mais tranquila e prazerosa. Como assinante, você terá acesso a ferramentas exclusivas, como rastreamento de itinerário, alertas personalizados de viagem e um assistente virtual para ajudá-lo em qualquer situação. Além disso, nossos planos incluem suporte prioritário 24 horas, garantindo atendimento rápido e eficiente sempre que precisar. Viaje com mais segurança e aproveite benefícios únicos ao se tornar um assinante!</p>
     <%= link_to "Saiba mais", pages_plans_path, class: "btn btn-warning fw-semibold my-2 p-3" %>
   </div>
 </div>

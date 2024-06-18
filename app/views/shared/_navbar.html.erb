@@ -1,48 +1,41 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-      <%= link_to image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1716506262/logoTravelShield-big_priqiw.png"), root_path, class: "navbar-brand" %>
+    <%= link_to image_tag("https://res.cloudinary.com/dkcetjel5/image/upload/v1716506262/logoTravelShield-big_priqiw.png"), root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <div class="d-flex align-items-center">
-          <li class="nav-item active">
-            <%= link_to "Início", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Cidades", cities_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Áreas perigosas", danger_areas_path, class: "nav-link" %>
-          </li>
-            <li class="nav-item active">
-            <%= link_to "Dicas", pages_tips_path, class: "nav-link" %>
-            </li>
-          </li>
-        </div>
-          <%# <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
-          </li> %>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Início", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Cidades", cities_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Áreas perigosas", danger_areas_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Dicas", pages_tips_path, class: "nav-link" %>
+        </li>
+        <% if current_user %>
           <li class="nav-item dropdown">
-              <li class="nav-item dropdown">
-              <% if current_user %>
-                <%= link_to profile_user_path(current_user), class: "nav-link dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" do %>
-                <%= image_tag current_user.avatar, class: "avatar" %>
-                <% end %>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="<%= profile_user_path(current_user) %>">Perfil</a>
-                <!-- <a class="dropdown-item" href="#">Another action</a> ADD ANOTHER ACTION -->
-                <a class="dropdown-item" data-turbo-method="delete" href="<%= destroy_user_session_path %>">Log out</a>
-                </div>
-              <% else %>
-                <%= link_to new_user_session_path, class: "nav-link" do %>
-                Log in
-                <% end %>
-              <% end %>
-              </li>
-          <!--/li-->
+            <%= link_to profile_user_path(current_user), class: "nav-link dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" do %>
+              <%= image_tag current_user.avatar, class: "avatar" %>
+            <% end %>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><%= link_to "Perfil", profile_user_path(current_user), class: "dropdown-item" %></li>
+              <li><%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to new_user_session_path, class: "nav-link" do %>
+              Log in
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
