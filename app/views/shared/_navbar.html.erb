@@ -6,18 +6,18 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
         <li class="nav-item">
           <%= link_to "Início", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Planos", pages_plans_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Áreas Perigosas", danger_areas_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Dicas", pages_tips_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Preços", pages_prices_path, class: "nav-link" %>
         </li>
         <% if current_user %>
           <li class="nav-item dropdown">
