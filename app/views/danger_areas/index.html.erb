@@ -3,20 +3,24 @@
 </div>
 
 <div class="row justify-content-around mt-4 mb-4">
-  <% @danger_areas.each do |danger_area| %>
-  <div class="danger-areas-cards mb-2 mt-2">
-        <%= link_to danger_area_path(danger_area.id) do %>
-          <%= image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg") %>
-        <% end %>
-      <div class="danger-areas-cards-infos">
-        <h2><%= danger_area.name %></h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-    </div>
-  <% end %>
+  <div class="text-center" style="width: 100%;">
+    <%= link_to "Nova Área", new_danger_area_path, class: "btn btn-primary", style: "width: 75%;" %>
   </div>
 </div>
 
-<div>
-  <%= link_to "Nova Área", new_danger_area_path, class: "btn btn-primary" %>
+<div class="row justify-content-around">
+  <% @danger_areas.each do |danger_area| %>
+    <div class="danger-areas-cards col-6 mb-2 mt-2">
+      <%= link_to danger_area_path(danger_area.id) do %>
+        <%= image_tag("https://res.cloudinary.com/dxf2n51ev/image/upload/f_auto,q_auto/fsp4wcdjjvjqbujnurpc") %>
+      <% end %>
+      <div class="danger-areas-cards-infos">
+        <h2><%= danger_area.name %></h2>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+<%== pagy_bootstrap_combo_nav_js(@pagy) %>
 </div>
