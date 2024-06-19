@@ -22,5 +22,10 @@
 </div>
 
 <div class="d-flex justify-content-center mt-4">
-<%== pagy_bootstrap_combo_nav_js(@pagy) %>
+  <%== pagy_bootstrap_combo_nav_js(@pagy) %>
 </div>
+
+<% colors = ['#FF0000', '#FF4000', '#FF8000', '#FFBF00', '#FFFF00'] %>
+<% colors.each do |color| %>
+  <i class="fa-solid fa-skull-crossbones" style="color: <%= color %>; font-size: 2rem;"></i>
+<% end %>

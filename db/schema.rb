@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_15_152959) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_15_211513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_152959) do
     t.bigint "city_id", null: false
     t.index ["city_id"], name: "index_reviews_on_city_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "saved_cities_users", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_saved_cities_users_on_city_id"
+    t.index ["user_id", "city_id"], name: "index_saved_cities_users_on_user_id_and_city_id", unique: true
+    t.index ["user_id"], name: "index_saved_cities_users_on_user_id"
   end
 
   create_table "sights", force: :cascade do |t|
