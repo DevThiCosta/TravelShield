@@ -8,11 +8,11 @@ cities_photos = "https://res.cloudinary.com/dkcetjel5/image/upload/v1716668402/f
 
 # Generate different city descriptions
 cities_descriptions = [
-  "Conhecida por suas belas praias e vida noturna vibrante, esta cidade é um dos destinos turísticos mais populares do Brasil.",
-  "Com uma rica herança cultural e diversos pontos históricos, esta cidade oferece um mergulho na história do Brasil.",
-  "Cidade industrial com grande importância econômica, conhecida por sua infraestrutura e desenvolvimento.",
-  "Com um cenário deslumbrante de montanhas e florestas, esta cidade é perfeita para os amantes da natureza.",
-  "Oferecendo uma mistura única de tradição e modernidade, esta cidade encanta seus visitantes com sua arquitetura e cultura."
+  "Conhecida por suas belas praias e vida noturna vibrante, esta cidade é um dos destinos turísticos mais populares do Brasil.".ljust(100),
+  "Com uma rica herança cultural e diversos pontos históricos, esta cidade oferece um mergulho na história do Brasil.".ljust(100),
+  "Cidade turistica com grande importância econômica, conhecida por sua infraestrutura e desenvolvimento.".ljust(100),
+  "Com um cenário deslumbrante de montanhas e florestas, esta cidade é perfeita para os amantes da natureza.".ljust(100),
+  "Oferecendo uma mistura única de tradição e modernidade, esta cidade encanta seus visitantes com sua arquitetura e cultura.".ljust(100)
 ]
 
 # Generate different user bios in Portuguese
