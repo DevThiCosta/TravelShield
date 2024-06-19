@@ -3,14 +3,14 @@
     <h1>TravelShield <strong>informa sobre a segurança do destino</strong> para <strong>quem quer viajar</strong>!</h1>
     <p>Deixe a sua viagem mais segura com informações sobre o seu destino.</p>
     <div class="row justify-content-center">
-      <div class="col-12 col-sm-10 col-md-8 my-5" style="width: 100%;">
+      <div class="col-12 col-sm-10 col-md-8 my-5" style="width: 70%;">
         <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control flex-grow-1",
                 placeholder: "Digite um destino"
             %>
-          <%= submit_tag "Buscar", name: "", class: "btn btn-primary fw-semibold ms-2" %>
+          <%= submit_tag "Buscar", name: "", class: "btn btn-primary fw-semibold" %>
         <% end %>
       </div>
     </div>
