@@ -10,9 +10,27 @@
 
 <div class="row justify-content-around">
   <% @danger_areas.each do |danger_area| %>
+    <%
+      risk_color = case danger_area.risk
+                   when 1
+                     '#FFFF00' # Amarelo para risco baixo
+                   when 2
+                     '#FFD700' # Dourado para risco médio
+                   when 3
+                     '#FFA500' # Laranja para risco alto
+                   when 4
+                     '#FF4500' # Laranja avermelhado para risco crítico
+                   when 5
+                     '#FF0000' # Vermelho para risco muito crítico
+                   else
+                     '#FFFFFF' # Branco para casos não especificados
+                   end
+    %>
     <div class="danger-areas-cards col-6 mb-2 mt-2">
       <%= link_to danger_area_path(danger_area.id) do %>
-        <%= image_tag("https://res.cloudinary.com/dxf2n51ev/image/upload/f_auto,q_auto/fsp4wcdjjvjqbujnurpc") %>
+        <div style="background: black; width: 100px; height: 200px; display: flex; align-items: center; justify-content: center;">
+          <i class="fa-solid fa-skull-crossbones" style="color: <%= risk_color %>; font-size: 2rem;"></i>
+        </div>
       <% end %>
       <div class="danger-areas-cards-infos">
         <h2><%= danger_area.name %></h2>
@@ -25,7 +43,4 @@
   <%== pagy_bootstrap_combo_nav_js(@pagy) %>
 </div>
 
-<% colors = ['#FF0000', '#FF4000', '#FF8000', '#FFBF00', '#FFFF00'] %>
-<% colors.each do |color| %>
-  <i class="fa-solid fa-skull-crossbones" style="color: <%= color %>; font-size: 2rem;"></i>
-<% end %>
+<div class="mb-5"></div>

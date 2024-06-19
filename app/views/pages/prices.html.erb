@@ -1,11 +1,11 @@
 <div class="banner p-5" style="background: linear-gradient(to top right, #003366 25%, #660033 80%);">
-  <h1 class="display-4" style="color: white; font-size: 3rem;">Preços</h1>
+  <h1 class="display-4 text-center" style="color: white; font-size: 3rem;">Preços</h1>
 </div>
 
 <div class="container p-5">
   <div class="row price-row">
-    <%= render partial: 'shared/price_card', locals: { price: '49,90', title: 'Básico', subtitle: 'Individual', features: ['Áreas Perigosas', 'Favoritos', 'Dicas'] } %>
-    <%= render partial: 'shared/price_card', locals: { price: '74,90', title: 'Padrão', subtitle: 'Duas pessoas', features: ['Áreas Naturais Perigosas', 'Áreas Perigosas', 'Favoritos'] } %>
-    <%= render partial: 'shared/price_card', locals: { price: '99,90', title: 'Prêmio', subtitle: 'Três pessoas', features: ['Posicionamento Online', 'Bairros com Alta Criminalidade', 'Reviews'] } %>
+    <%= render partial: 'shared/price_card', locals: { price: 'Grátis', title: 'Básico', subtitle: 'Individual', features: ['Áreas Perigosas', 'Favoritos', 'Dicas'].sort_by(&:length).reverse } %>
+    <%= render partial: 'shared/price_card', locals: { price: 'R$ 74,90', title: 'Padrão', subtitle: 'Duas pessoas', features: ['Áreas Naturais Perigosas', 'Áreas Perigosas', 'Favoritos', 'Suporte 24/7', 'Relatórios Mensais', 'Acesso a Eventos Exclusivos'].sort_by(&:length).reverse } %>
+    <%= render partial: 'shared/price_card', locals: { price: 'R$ 99,90', title: 'Prêmio', subtitle: 'Três pessoas', features: ['Posicionamento Online', 'Bairros com Alta Criminalidade', 'Consultoria Personalizada', 'Análise de Dados em Tempo Real', 'Suporte VIP', 'Arquivo Documentos', 'Acesso a Eventos Exclusivos'].sort_by(&:length).reverse } %>
   </div>
 </div>

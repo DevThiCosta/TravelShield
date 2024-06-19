@@ -1,7 +1,7 @@
 class DangerAreasController < ApplicationController
 
   def index
-    @pagy, @danger_areas = pagy(DangerArea.all, items: 9)
+    @pagy, @danger_areas = pagy(DangerArea.all, items: 6)
   end
 
   def show
