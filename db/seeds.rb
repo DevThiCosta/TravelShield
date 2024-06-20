@@ -126,6 +126,15 @@ bad_review_comments = [
   "Muito barulhenta, difícil descansar."
 ]
 
+# Define color mapping for risk levels
+risk_colors = {
+  5 => '#FF0000',   # Red
+  4 => '#FF4000',   # Orange-Red
+  3 => '#FF8000',   # Orange
+  2 => '#FFBF00',   # Yellow-Orange
+  1 => '#FFFF00'    # Yellow
+}
+
 # Seed Users
 15.times do |i|
   User.create!(
@@ -182,18 +191,6 @@ danger_areas = [
     city_name: "Rio de Janeiro"
   },
   {
-    name: "Santa Marta",
-    description: "Favela localizada na Zona Sul do Rio de Janeiro, conhecida por projetos sociais e iniciativas de pacificação. No entanto, ainda enfrenta desafios de segurança, principalmente relacionados ao tráfico de drogas.",
-    risk: rand(1..5),
-    city_name: "Rio de Janeiro"
-  },
-  {
-    name: "Vila Cruzeiro",
-    description: "Favela localizada na Zona Norte do Rio de Janeiro, notória por tiroteios e conflitos entre facções criminosas. A área apresenta dificuldades significativas em termos de infraestrutura e segurança.",
-    risk: rand(1..5),
-    city_name: "Rio de Janeiro"
-  },
-  {
     name: "Bongaba",
     description: "Área em Magé com histórico de alagamentos frequentes, o que representa um risco para os moradores. Os problemas de infraestrutura e a falta de serviços básicos agravam a situação da região.",
     risk: rand(1..5),
@@ -206,11 +203,37 @@ danger_areas = [
     city_name: "Rio de Janeiro"
   },
   {
-    name: "Turano",
-    description: "Área de risco na Zona Norte do Rio de Janeiro, conhecida por conflitos armados entre facções e a polícia. É um local de alta vulnerabilidade social e falta de infraestrutura.",
+    name: "Morro do Borel",
+    description: "Área de alta criminalidade na Tijuca, Rio de Janeiro, com frequentes confrontos entre traficantes e polícia.",
     risk: rand(1..5),
     city_name: "Rio de Janeiro"
   },
+  {
+    name: "Santa Lúcia",
+    description: "Bairro em Duque de Caxias, conhecido pela violência e problemas com tráfico de drogas.",
+    risk: rand(1..5),
+    city_name: "Duque de Caxias"
+  },
+  {
+    name: "Fallet-Fogueteiro",
+    description: "Área de risco na região central do Rio de Janeiro, marcada pela violência e tráfico.",
+    risk: rand(1..5),
+    city_name: "Rio de Janeiro"
+  },
+
+  {
+    name: "Quitandinha",
+    description: "Bairro em Petrópolis, conhecido pelo risco de deslizamentos de terra e enchentes.",
+    risk: rand(1..5),
+    city_name: "Petrópolis"
+  },
+  {
+    name: "Ladeira dos Tabajaras",
+    description: "Comunidade em Copacabana, Rio de Janeiro. Alta incidência de crimes e violência urbana.",
+    risk: rand(1..5),
+    city_name: "Rio de Janeiro"
+  },
+
   {
     name: "Manguinhos",
     description: "Favela com histórico de problemas de infraestrutura, como falta de água e esgoto adequados. A violência é uma preocupação constante, e há uma presença significativa de atividades criminosas.",
@@ -260,7 +283,11 @@ danger_areas.each do |danger_area|
   city = City.find_by(name: danger_area.delete(:city_name)) # Remove a chave city_name e busca a cidade
   next unless city
 
-  DangerArea.create!(danger_area.merge(city: city))
+  risk = danger_area[:risk]
+  color = risk_colors[risk]
+  icon = "<i class='fa-solid fa-skull-crossbones' style='color: #{color}; font-size: 2rem;'></i>"
+
+  DangerArea.create!(danger_area.merge(city: city, icon: icon))
 end
 
 # Seed Reviews

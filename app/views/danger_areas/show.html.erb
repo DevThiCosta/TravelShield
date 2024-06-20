@@ -28,7 +28,8 @@
         </div>
         <div class="card-footer text-center">
           <%= link_to "Editar", edit_danger_area_path(@danger_area.id), class: "btn btn-secondary m-2" %>
-          <%= link_to "Voltar", danger_areas_path, class: "btn btn-primary m-2" %>
+          <%= link_to "Voltar", request.referer || danger_areas_path, class: "btn btn-primary m-2" %>
+          <%= link_to "Ver mais sobre #{@danger_area.city.name}", city_path(@danger_area.city.id), class: "btn btn-info m-2" %>
           <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Excluir</button>
         </div>
       </div>
