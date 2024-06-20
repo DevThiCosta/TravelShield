@@ -4,9 +4,9 @@ class CitiesController < ApplicationController
 
   def index
     if params[:query].present?
-      @pagy, @cities = pagy(City.search_any_location(params[:query]), items: 10)
+      @pagy, @cities = pagy(City.search_any_location(params[:query]), items: 8)
     else
-      @pagy, @cities = pagy(City.all, items: 10)
+      @pagy, @cities = pagy(City.all, items: 8)
     end
   end
 

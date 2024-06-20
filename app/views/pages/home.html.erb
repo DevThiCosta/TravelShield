@@ -18,7 +18,7 @@
 </div>
 
 <% states_cards = [
-  { name: "Rio de Janeiro", url: "https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg", description: "O Rio de Janeiro é famoso por suas praias deslumbrantes, incluindo Copacabana e Ipanema. Também abriga o icônico Cristo Redentor no topo do Corcovado." },
+  { name: "Rio de Janeiro", url: "https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoRiodeJaneiro_c%C3%B3pia_obzuaf.jpg", description: "O Rio de Janeiro é famoso por suas praias deslumbrante. Também abriga o icônico Cristo Redentor no topo do Corcovado." },
   { name: "São Paulo", url: "https://res.cloudinary.com/dkcetjel5/image/upload/v1717714474/fotoSaoPaulo_rvpz2l.jpg", description: "São Paulo é a maior cidade do Brasil e um importante centro financeiro e cultural. Possui uma arquitetura diversificada e uma vida noturna agitada." },
   { name: "Ceará", url: "https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoJericuaquara_eefgmu.jpg", description: "O Ceará é conhecido por suas praias paradisíacas, como Jericoacoara e Canoa Quebrada. Também é famoso por suas dunas de areia e lagoas." },
   { name: "Santa Catarina", url: "https://res.cloudinary.com/dkcetjel5/image/upload/v1717714404/fotoFlorianopolis_kxmapz.jpg", description: "Santa Catarina é um estado com belas paisagens naturais, incluindo a Serra do Rio do Rastro e a Ilha de Florianópolis." }
@@ -30,7 +30,7 @@
       <div class="card-trip" style="width: 100%;">
         <%= image_tag(state_card[:url], class: "card-img-top") %>
         <div class="card-body">
-          <h2 class="card-title"><%= state_card[:name] %></h2>
+          <h2 class="card-title text-center"><%= state_card[:name] %></h2>
           <p class="card-text" style="text-align: center;"><%= state_card[:description] %></p>
         </div>
       </div>
