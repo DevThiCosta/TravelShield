@@ -29,7 +29,7 @@
     <%= link_to cities_path do %>
       <div class="card-trip" style="width: 100%;">
         <%= image_tag(state_card[:url], class: "card-img-top") %>
-        <div class="card-body">
+        <div class="card-body" style="padding-bottom: 20px;">
           <h2 class="card-title text-center"><%= state_card[:name] %></h2>
           <p class="card-text" style="text-align: center;"><%= state_card[:description] %></p>
         </div>
@@ -39,10 +39,8 @@
 </div>
 
 <div class="home-section home-section-three d-flex flex-wrap align-items-center">
-
   <div class="col-md-1">
   </div>
-
   <div class="col-12 p-5 col-md-3 text-center">
     <img src="https://res.cloudinary.com/dkcetjel5/image/upload/v1717719245/iconeDeAlerta-vermelho_o9ybdl.png" class="img-fluid" width="230px" alt="Ícone de alerta">
   </div>
@@ -57,18 +55,13 @@
     </ul>
     <%= link_to "Saiba mais", danger_areas_path, class: "btn btn-warning fw-semibold my-2 p-3" %>
   </div>
-
   <div class="col-md-1">
   </div>
-
 </div>
 
-
 <div class="home-section home-section-four d-flex flex-wrap align-items-center">
-
   <div class="col-md-1">
   </div>
-
   <div class="col-12 p-5 col-md-7 text-start">
     <h2>Dicas</h2>
     <p style="text-align: justify;">Viajar é uma oportunidade única para expandir seus horizontes e aprender coisas novas. Não tenha medo de sair da sua zona de conforto e se aventurar em lugares desconhecidos. Explore o mundo com curiosidade e coragem! Aprenda algumas palavras na língua local, experimente a comida típica e faça amigos. Lembre-se de sorrir e aproveitar cada momento.</p>
@@ -77,16 +70,11 @@
   <div class="col-12 p-5 col-md-3 text-center">
     <img src="https://res.cloudinary.com/dkcetjel5/image/upload/v1717719354/iconeDeJoinha_rstmbu.png" class="img-fluid" width="220px" alt="Ícone de joinha">
   </div>
-
   <div class="col-md-1">
   </div>
-
 </div>
 
-
-<<!-- Final do arquivo home.html.erb -->
-
-<div class="home-section home-section-five d-flex flex-wrap align-items-center mb-1"> <!-- Adicionamos a classe mb-5 aqui -->
+<div class="home-section home-section-five d-flex flex-wrap align-items-center mb-1">
   <div class="col-md-2 text-center mb-4">
   </div>
   <div class="col-12 p-5 col-md-8 col-sm-12 text-center mb-4">
