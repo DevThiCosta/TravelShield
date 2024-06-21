@@ -21,29 +21,28 @@
           <p class="card-text"><%= @profile_user.bio %></p>
         </div>
       </div>
-
       <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <%= current_user == @profile_user ? link_to("Lugares Salvos", "#", class: "text-decoration-none") : '<a href="#" class="text-decoration-none disabled"><i class="fas fa-lock"></i> Lugares Salvos</a>'.html_safe %>
-          <i class="fas fa-bookmark"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <%= current_user == @profile_user ? link_to("Informações", profile_user_info_path(@profile_user), class: "text-decoration-none") : '<a href="#" class="text-decoration-none disabled"><i class="fas fa-lock"></i> Informações</a>'.html_safe %>
-          <i class="fas fa-info-circle"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <% if current_user == @profile_user %>
-            <%= link_to "Minhas Avaliações", user_reviews_path(@profile_user), class: "text-decoration-none" %>
-          <% else %>
-            <%= link_to "Avaliações", user_reviews_path(@profile_user), class: "text-decoration-none" %>
-          <% end %>
-          <i class="fas fa-star"></i>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <%= link_to "Sair", destroy_user_session_path, class: "text-decoration-none text-danger", data: { turbo_method: :delete } %>
-          <i class="fas fa-sign-out-alt text-danger"></i>
-        </li>
+        <% if current_user == @profile_user %>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= link_to("Lugares Salvos", "#", class: "text-decoration-none") %>
+        <i class="fas fa-bookmark"></i>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= link_to "Informações", profile_user_info_path(@profile_user), class: "text-decoration-none" %>
+        <i class="fas fa-info-circle"></i>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= link_to "Minhas Avaliações", user_reviews_path(@profile_user), class: "text-decoration-none" %>
+        <i class="fas fa-star"></i>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= link_to "Sair", destroy_user_session_path, class: "text-decoration-none text-danger", data: { turbo_method: :delete } %>
+        <i class="fas fa-sign-out-alt text-danger"></i>
+          </li>
+        <% else %>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= link_to "Avaliações", user_reviews_path(@profile_user), class: "text-decoration-none" %>
+        <i class="fas fa-star"></i>
+          </li>
+        <% end %>
       </ul>
-    </div>
-  </div>
-</div>
