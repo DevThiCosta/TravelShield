@@ -10,9 +10,11 @@
         <li class="nav-item">
           <%= link_to "Início", root_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Áreas Perigosas", danger_areas_path, class: "nav-link" %>
-        </li>
+        <% if current_user %>
+          <li class="nav-item">
+            <%= link_to "Cidades", cities_path, class: "nav-link" %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to "Dicas", pages_tips_path, class: "nav-link" %>
         </li>

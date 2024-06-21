@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   private
 
   def exempt_pages?
-    %w[about terms contact tips].include?(params[:action])
+    %w[about terms contact tips prices].include?(params[:action])
   end
 end
