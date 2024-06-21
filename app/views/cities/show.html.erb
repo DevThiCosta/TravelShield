@@ -28,9 +28,12 @@
                 <% @city.reviews.each_with_index do |review, index| %>
                   <div class="carousel-item <%= 'active' if index == 0 %>">
                     <div class="card border-0 shadow-sm p-3">
-                      <h5 class="card-title"><%= review.title %></h5>
-                      <p class="card-text"><%= review.comment %></p>
+                      <h5 class="card-title"><%= review.title %> - <%= link_to "Ver mais", reviews_info_path(review.id), class: "text-secondary" %></h5>
+                      <p><strong>Usuário:</strong> <%= review.user.name %></p>
                       <p><strong>Avaliações:</strong> <%= star_rating(review.rate) %></p>
+
+
+
                     </div>
                   </div>
                 <% end %>

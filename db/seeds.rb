@@ -136,7 +136,7 @@ risk_colors = {
 }
 
 # Seed Users
-15.times do |i|
+14.times do |i|
   User.create!(
     name: Faker::Name.name,
     email: "teste#{i + 1}@teste.com",
@@ -148,6 +148,18 @@ risk_colors = {
     avatar: Faker::Avatar.image
   )
 end
+
+# Create admin user
+User.create!(
+  name: "Thiago Costa",
+  email: "thiago@gmail.com",
+  phone_number: Faker::PhoneNumber.phone_number,
+  address: Faker::Address.full_address,
+  birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
+  password: "123456",
+  bio: "Explorador(a) urbano(a) 🏙️, encontrando os melhores cafés e restaurantes.",
+  avatar: Faker::Avatar.image
+)
 
 # Seed Cities
 cities = ConectaAddressBr::Cities.by_state_single("RJ")
@@ -220,7 +232,6 @@ danger_areas = [
     risk: rand(1..5),
     city_name: "Rio de Janeiro"
   },
-
   {
     name: "Quitandinha",
     description: "Bairro em Petrópolis, conhecido pelo risco de deslizamentos de terra e enchentes.",
@@ -233,7 +244,6 @@ danger_areas = [
     risk: rand(1..5),
     city_name: "Rio de Janeiro"
   },
-
   {
     name: "Manguinhos",
     description: "Favela com histórico de problemas de infraestrutura, como falta de água e esgoto adequados. A violência é uma preocupação constante, e há uma presença significativa de atividades criminosas.",
@@ -287,28 +297,43 @@ danger_areas.each do |danger_area|
   color = risk_colors[risk]
   icon = "<i class='fa-solid fa-skull-crossbones' style='color: #{color}; font-size: 2rem;'></i>"
 
-  DangerArea.create!(danger_area.merge(city: city, icon: icon))
-end
+  icon = "<i class='fa-solid fa-skull-crossbones' style='color: #{color}; font-size: 2rem;'></i>"
 
+  DangerArea.create!(danger_area.merge(city: city, icon: icon))
 # Seed Reviews
 User.all.each do |user|
-  50.times do |i|
-    rate = rand(1..5)
-    if rate >= 4
-      title = good_review_titles[i % good_review_titles.size]
-      comment = good_review_comments[i % good_review_comments.size]
-    else
-      title = bad_review_titles[i % bad_review_titles.size]
-      comment = bad_review_comments[i % bad_review_comments.size]
-    end
+  rate = rand(1..5)
+  if rate >= 4
+    title = good_review_titles.sample
+    comment = good_review_comments.sample
+  else
+    title = bad_review_titles.sample
+    comment = bad_review_comments.sample
+  end
 
-    Review.create!(
-      title: title,
-      rate: rate,
-      comment: comment,
-      user: user,
-      city: created_cities.sample  # Use city: rather than city_id: Rails understands the association
-    )
+  Review.create!(
+    title: title,
+    rate: rate,
+    comment: comment,
+    user: user,
+    city: City.find_by(name: "Rio de Janeiro")  # Use city: rather than city_id: Rails understands the association
+  )
+end
+# Seed Reviews for a single user
+user = User.first
+
+User.all.each do |user|
+  rate = rand(3..5)
+  title = good_review_titles.sample
+  comment = good_review_comments.sample
+
+  Review.create!(
+    title: title,
+    rate: rate,
+    comment: comment,
+    user: user,
+    city: City.find_by(name:"Arraial do Cabo")  # Use city: rather than city_id: Rails understands the association
+  )
   end
 end
 
