@@ -157,7 +157,7 @@ User.create!(
   address: Faker::Address.full_address,
   birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
   password: "123456",
-  bio: "Explorador(a) urbano(a) 🏙️, encontrando os melhores cafés e restaurantes.",
+  bio: "Explorador urbano 🏙️, encontrando os melhores cafés, bares e restaurantes.",
   avatar: Faker::Avatar.image
 )
 
